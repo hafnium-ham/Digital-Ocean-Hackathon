@@ -16,8 +16,6 @@ CORS(app)  # allow your React frontend to hit this backend
 brouter = BRouterService()
 overpass = OverpassService()
 
-MAPILLARY_TOKEN = os.getenv("MAPILLARY_TOKEN")
-
 
 @app.route("/")
 def health():
@@ -99,6 +97,11 @@ def get_pois():
 
 @app.route("/image-data")
 def get_google_streetview():
+    """
+    Get GoogleStreetView Images for a given coordinate 
+    Query params:
+        - waypoints: lat, lon 
+    """
     lat = request.args.get("lat")
     lon = request.args.get("lon")
 
