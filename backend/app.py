@@ -93,7 +93,75 @@ def get_pois():
         return jsonify({"error": str(e)}), 400
 
 
-@app.route("/image-data")
+@app.route("/api/route-summary", methods=['POST'])
+def get_route_summary():
+    """
+    Generate AI summary of route using Digital Ocean agent
+    Request body should contain route metadata
+    """
+    try:
+        data = request.get_json()
+        
+        # Extract route metadata
+        distance_km = data.get('distance_km', 0)
+        distance_mi = data.get('distance_mi', 0)
+        time_display = data.get('time_display', 'N/A')
+        waypoints = data.get('waypoints', [])
+        profile = data.get('profile', 'unknown')
+        
+        # Build prompt for AI agent
+        prompt = f"""Generate a brief, engaging 2-3 sentence summary of this road trip route:
+
+Route Details:
+- Distance: {distance_km} km ({distance_mi} miles)
+- Estimated travel time: {time_display}
+- Number of stops: {len(waypoints)}
+- Route type: {profile}
+- Waypoints: {', '.join([wp.get('label', 'Unknown') for wp in waypoints])}
+
+Write a friendly, informative summary that highlights the journey. Make it sound exciting and helpful for travelers. Please embe"""
+
+        # Call Digital Ocean AI agent
+        agent_endpoint = os.getenv("AGENT_ENDPOINT")
+        agent_key = os.getenv("AGENT_KEY")
+        
+        if not agent_endpoint or not agent_key:
+            return jsonify({"summary": f"Your {distance_km} km journey takes you through {len(waypoints)} carefully selected points, estimated to take {time_display} of travel time."}), 200
+        
+        response = requests.post(
+            f"{agent_endpoint}/api/v1/chat/completions",
+            headers={
+                "Content-Type": "application/json",
+                "Authorization": f"Bearer {agent_key}"
+            },
+            json={
+                "messages": [
+                    {
+                        "role": "user",
+                        "content": prompt
+                    }
+                ],
+                "stream": False,
+                "include_functions_info": False,
+                "include_retrieval_info": False,
+                "include_guardrails_info": False
+            },
+            timeout=30
+        )
+        
+        if response.status_code == 200:
+            result = response.json()
+            summary = result.get('choices', [{}])[0].get('message', {}).get('content', '')
+            return jsonify({"summary": summary})
+        else:
+            # Fallback summary if agent fails
+            return jsonify({"summary": f"Your {distance_km} km journey takes you through {len(waypoints)} carefully selected points, estimated to take {time_display} of travel time."}), 200
+            
+    except Exception as e:
+        print(f"Error generating route summary: {e}")
+        # Return fallback summary on error
+        return jsonify({"summary": "Your scenic route is ready for exploration!"}), 200
+
 
 @app.route("/image-data")
 def get_google_streetview():
