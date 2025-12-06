@@ -96,35 +96,34 @@ def get_pois():
 
 
 @app.route("/image-data")
-def get_image_data():
-    """Legacy Mapillary endpoint"""
+
+@app.route("/image-data")
+def get_google_streetview():
     lat = request.args.get("lat")
     lon = request.args.get("lon")
 
     if not lat or not lon:
         return jsonify({"error": "lat and lon required"}), 400
 
-    try:
-        url = (
-            "https://graph.mapillary.com/images"
-            "?fields=id,thumb_256_url,captured_at,geometry"
-            f"&access_token={MAPILLARY_TOKEN}"
-            f"&closeto={lon},{lat}"
-        )
+    headings = [0, 90, 180, 270]  # multiple directions
+    size = "640x640"
+    pitch = 0
 
-        response = requests.get(url)
-        response.raise_for_status()
+    GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
-        data = response.json()
+    images = [
+        {
+            "heading": h,
+            "image_url": (
+                f"https://maps.googleapis.com/maps/api/streetview"
+                f"?size={size}&location={lat},{lon}&heading={h}&pitch={pitch}&key={GOOGLE_API_KEY}"
+            )
+        }
+        for h in headings
+    ]
 
-        return jsonify({
-            "count": len(data.get("data", [])),
-            "images": data.get("data", [])
-        })
+    return jsonify({"count": len(images), "images": images})
 
-    except Exception as e:
-        print("ERROR:", e)
-        return jsonify({"error": "Mapillary API error"}), 500
 
 
 if __name__ == "__main__":
