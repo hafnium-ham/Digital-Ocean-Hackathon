@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route Planning + POI Discovery</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 0.25rem;
+        }
+        
+        .container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+        
+        .sidebar {
+            width: 380px;
+            background: #f8f9fa;
+            border-right: 1px solid #dee2e6;
+            overflow-y: auto;
+        }
+        
+        .sidebar-section {
+            padding: 1.5rem;
+            border-bottom: 2px solid #dee2e6;
+        }
+        
+        .sidebar-section h2 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #495057;
+        }
+        
+        #map {
+            flex: 1;
+        }
+        
+        .control-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .control-group:last-child {
+            margin-bottom: 0;
+        }
+        
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #495057;
+            font-size: 0.9rem;
+        }
+        
+        input, select, button {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            padding: 0.75rem;
+            margin-top: 0.5rem;
+            transition: transform 0.2s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .button-secondary {
+            background: #6c757d;
+        }
+        
+        .button-success {
+            background: #28a745;
+        }
+        
+        .waypoint-item {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .waypoint-item input {
+            flex: 1;
+        }
+        
+        .waypoint-item button {
+            width: auto;
+            padding: 0.5rem 1rem;
+            margin: 0;
+            background: #dc3545;
+        }
+        
+        .filters {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+        }
+        
+        .filter-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+        }
+        
+        .filter-item input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+        
+        .filter-item label {
+            margin: 0;
+            font-weight: normal;
+            cursor: pointer;
+        }
+        
+        .info-box {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .info-box h3 {
+            margin-bottom: 0.75rem;
+            color: #495057;
+            font-size: 1rem;
+        }
+        
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .info-item:last-child {
+            border-bottom: none;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: #6c757d;
+        }
+        
+        .info-value {
+            color: #667eea;
+            font-weight: 600;
+        }
+        
+        .poi-list {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 0.5rem;
+        }
+        
+        .poi-item {
+            padding: 0.75rem;
+            border-bottom: 1px solid #e9ecef;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .poi-item:hover {
+            background: #f1f3f5;
+        }
+        
+        .poi-name {
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 0.25rem;
+        }
+        
+        .poi-type {
+            font-size: 0.8rem;
+            color: #6c757d;
+            background: #e9ecef;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            display: inline-block;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 1rem;
+            color: #6c757d;
+        }
+        
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+        
+        .instructions {
+            background: #e7f3ff;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: #004085;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+        
+        .badge-success {
+            background: #d4edda;
+            color: #155724;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🚴 Route Planning + POI Discovery</h1>
+        <div class="subtitle">Perfect for Road Trips - Find restaurants, cafes, gas stations & more along your route</div>
+    </header>
+    
+    <div class="container">
+        <div class="sidebar">
+            <!-- Route Planning Section -->
+            <div class="sidebar-section">
+                <h2>📍 Route Planning</h2>
+                
+                <div class="instructions">
+                    <strong>How to use:</strong><br>
+                    1. Enter waypoints or click on map<br>
+                    2. Generate route<br>
+                    3. Select POI types to discover<br>
+                    4. Find places along your route
+                </div>
+                
+                <div class="control-group">
+                    <label>Routing Profile</label>
+                    <select id="profile">
+                        <option value="trekking">Trekking</option>
+                        <option value="fastbike">Fast Bike</option>
+                        <option value="safety">Safety</option>
+                        <option value="shortest">Shortest</option>
+                        <option value="moped">Moped</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label>Waypoints</label>
+                    <div id="waypoints">
+                        <div class="waypoint-item">
+                            <input type="text" placeholder="Lon, Lat" data-waypoint="0" value="-122.408590, 37.781554">
+                        </div>
+                        <div class="waypoint-item">
+                            <input type="text" placeholder="Lon, Lat" data-waypoint="1" value="-122.391590, 37.795554">
+                        </div>
+                    </div>
+                    <button class="button-success" onclick="addWaypoint()">+ Add Waypoint</button>
+                </div>
+                
+                <button onclick="generateRoute()" id="generateBtn">Generate Route</button>
+                <button onclick="clearAll()" class="button-secondary">Clear All</button>
+                
+                <div id="routeInfo"></div>
+            </div>
+            
+            <!-- POI Discovery Section -->
+            <div class="sidebar-section">
+                <h2>🔍 Discover Places</h2>
+                
+                <div class="control-group">
+                    <label>Filter POI Types</label>
+                    <div class="filters">
+                        <div class="filter-item">
+                            <input type="checkbox" id="filter-restaurant" checked>
+                            <label for="filter-restaurant">🍽️ Restaurants</label>
+                        </div>
+                        <div class="filter-item">
+                            <input type="checkbox" id="filter-cafe" checked>
+                            <label for="filter-cafe">☕ Cafes</label>
+                        </div>
+                        <div class="filter-item">
+                            <input type="checkbox" id="filter-bar">
+                            <label for="filter-bar">🍺 Bars/Pubs</label>
+                        </div>
+                        <div class="filter-item">
+                            <input type="checkbox" id="filter-parking">
+                            <label for="filter-parking">🅿️ Parking</label>
+                        </div>
+                        <div class="filter-item">
+                            <input type="checkbox" id="filter-toilets">
+                            <label for="filter-toilets">🚻 Restrooms</label>
+                        </div>
+                        <div class="filter-item">
+                            <input type="checkbox" id="filter-tourism">
+                            <label for="filter-tourism">🏛️ Tourism</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <button onclick="findPOIs()" id="poiBtn" disabled>Find POIs Along Route</button>
+                
+                <div id="poiInfo"></div>
+            </div>
+            
+            <div id="error"></div>
+        </div>
+        
+        <div id="map"></div>
+    </div>
+    
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <script>
+        // Initialize map
+        const map = L.map('map').setView([37.7749, -122.4194], 13);
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+        
+        // State
+        let markers = [];
+        let routeLine = null;
+        let poiMarkers = [];
+        let currentRoute = null;
+        let waypointCount = 2;
+        
+        // POI icon colors
+        const poiIcons = {
+            restaurant: '🍽️',
+            cafe: '☕',
+            bar: '🍺',
+            pub: '🍺',
+            parking: '🅿️',
+            toilets: '🚻',
+            tourism: '🏛️',
+            museum: '🏛️',
+            artwork: '🎨',
+            default: '📍'
+        };
+        
+        // Click map to add waypoint
+        map.on('click', function(e) {
+            const { lat, lng } = e.latlng;
+            const inputs = document.querySelectorAll('[data-waypoint]');
+            for (let input of inputs) {
+                if (!input.value) {
+                    input.value = `${lng.toFixed(6)}, ${lat.toFixed(6)}`;
+                    const marker = L.marker([lat, lng]).addTo(map);
+                    marker.bindPopup(`Waypoint ${input.dataset.waypoint}`).openPopup();
+                    markers.push(marker);
+                    break;
+                }
+            }
+        });
+        
+        function addWaypoint() {
+            const container = document.getElementById('waypoints');
+            const div = document.createElement('div');
+            div.className = 'waypoint-item';
+            div.innerHTML = `
+                <input type="text" placeholder="Lon, Lat" data-waypoint="${waypointCount}">
+                <button onclick="removeWaypoint(this)">×</button>
+            `;
+            container.appendChild(div);
+            waypointCount++;
+        }
+        
+        function removeWaypoint(btn) {
+            btn.parentElement.remove();
+        }
+        
+        function clearAll() {
+            // Clear markers
+            markers.forEach(m => map.removeLayer(m));
+            markers = [];
+            
+            // Clear route
+            if (routeLine) {
+                map.removeLayer(routeLine);
+                routeLine = null;
+            }
+            
+            // Clear POIs
+            poiMarkers.forEach(m => map.removeLayer(m));
+            poiMarkers = [];
+            
+            // Clear inputs
+            document.querySelectorAll('[data-waypoint]').forEach(input => {
+                input.value = '';
+            });
+            
+            // Reset defaults
+            document.querySelector('[data-waypoint="0"]').value = '-122.408590, 37.781554';
+            document.querySelector('[data-waypoint="1"]').value = '-122.391590, 37.795554';
+            
+            // Clear info
+            document.getElementById('routeInfo').innerHTML = '';
+            document.getElementById('poiInfo').innerHTML = '';
+            document.getElementById('error').innerHTML = '';
+            document.getElementById('poiBtn').disabled = true;
+            
+            currentRoute = null;
+        }
+        
+        async function generateRoute() {
+            const btn = document.getElementById('generateBtn');
+            const errorDiv = document.getElementById('error');
+            const infoDiv = document.getElementById('routeInfo');
+            
+            errorDiv.innerHTML = '';
+            infoDiv.innerHTML = '<div class="loading">Generating route...</div>';
+            btn.disabled = true;
+            
+            try {
+                const inputs = document.querySelectorAll('[data-waypoint]');
+                const waypoints = [];
+                
+                for (let input of inputs) {
+                    if (input.value.trim()) {
+                        const [lon, lat] = input.value.split(',').map(s => parseFloat(s.trim()));
+                        if (!isNaN(lon) && !isNaN(lat)) {
+                            waypoints.push(`${lon},${lat}`);
+                        }
+                    }
+                }
+                
+                if (waypoints.length < 2) {
+                    throw new Error('Please provide at least 2 waypoints');
+                }
+                
+                const profile = document.getElementById('profile').value;
+                const waypointsParam = waypoints.join(';');
+                const url = `http://localhost:5001/api/route?waypoints=${waypointsParam}&profile=${profile}`;
+                
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                if (!response.ok || data.error) {
+                    throw new Error(data.error || 'Failed to generate route');
+                }
+                
+                // Clear old route
+                if (routeLine) {
+                    map.removeLayer(routeLine);
+                }
+                
+                // Draw route
+                const coordinates = data.features[0].geometry.coordinates;
+                const latLngs = coordinates.map(coord => [coord[1], coord[0]]);
+                
+                routeLine = L.polyline(latLngs, {
+                    color: '#667eea',
+                    weight: 4,
+                    opacity: 0.8
+                }).addTo(map);
+                
+                map.fitBounds(routeLine.getBounds(), { padding: [50, 50] });
+                
+                // Store route
+                currentRoute = { coordinates, bounds: routeLine.getBounds() };
+                
+                // Display info
+                const props = data.features[0].properties;
+                const distance = (parseFloat(props['track-length']) / 1000).toFixed(2);
+                const time = (parseFloat(props['total-time']) / 60).toFixed(1);
+                const ascend = parseFloat(props['filtered ascend']).toFixed(0);
+                const descend = parseFloat(props['filtered descend']).toFixed(0);
+                
+                infoDiv.innerHTML = `
+                    <div class="info-box">
+                        <h3>Route Information</h3>
+                        <div class="info-item">
+                            <span class="info-label">Distance:</span>
+                            <span class="info-value">${distance} km</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Est. Time:</span>
+                            <span class="info-value">${time} min</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Elevation Gain:</span>
+                            <span class="info-value">${ascend} m</span>
+                        </div>
+                        ${props.segments ? `
+                        <div class="info-item">
+                            <span class="info-label">Segments:</span>
+                            <span class="info-value">${props.segments}</span>
+                        </div>
+                        ` : ''}
+                    </div>
+                `;
+                
+                // Enable POI button
+                document.getElementById('poiBtn').disabled = false;
+                
+            } catch (error) {
+                errorDiv.innerHTML = `<div class="error">Error: ${error.message}</div>`;
+                infoDiv.innerHTML = '';
+            } finally {
+                btn.disabled = false;
+            }
+        }
+        
+        async function findPOIs() {
+            if (!currentRoute) {
+                alert('Please generate a route first');
+                return;
+            }
+            
+            const btn = document.getElementById('poiBtn');
+            const errorDiv = document.getElementById('error');
+            const poiDiv = document.getElementById('poiInfo');
+            
+            errorDiv.innerHTML = '';
+            poiDiv.innerHTML = '<div class="loading">Finding POIs along route...</div>';
+            btn.disabled = true;
+            
+            try {
+                // Get bounding box
+                const bounds = currentRoute.bounds;
+                const bbox = `${bounds.getSouth()},${bounds.getWest()},${bounds.getNorth()},${bounds.getEast()}`;
+                
+                const response = await fetch(`http://localhost:5001/api/pois?bbox=${bbox}`);
+                const data = await response.json();
+                
+                if (!response.ok || data.error) {
+                    throw new Error(data.error || 'Failed to fetch POIs');
+                }
+                
+                // Clear old POI markers
+                poiMarkers.forEach(m => map.removeLayer(m));
+                poiMarkers = [];
+                
+                // Filter POIs based on selected types
+                const filters = {
+                    restaurant: document.getElementById('filter-restaurant').checked,
+                    cafe: document.getElementById('filter-cafe').checked,
+                    bar: document.getElementById('filter-bar').checked || document.getElementById('filter-bar').checked,
+                    pub: document.getElementById('filter-bar').checked,
+                    parking: document.getElementById('filter-parking').checked,
+                    toilets: document.getElementById('filter-toilets').checked,
+                    tourism: document.getElementById('filter-tourism').checked,
+                    museum: document.getElementById('filter-tourism').checked,
+                    artwork: document.getElementById('filter-tourism').checked
+                };
+                
+                const pois = data.pois || [];
+                const filteredPOIs = pois.filter(poi => filters[poi.type]);
+                
+                // Add markers
+                filteredPOIs.forEach(poi => {
+                    const icon = L.divIcon({
+                        html: `<div style="font-size: 24px;">${poiIcons[poi.type] || poiIcons.default}</div>`,
+                        className: 'poi-marker',
+                        iconSize: [30, 30]
+                    });
+                    
+                    const marker = L.marker([poi.lat, poi.lon], { icon }).addTo(map);
+                    marker.bindPopup(`
+                        <strong>${poi.name}</strong><br>
+                        <em>${poi.type}</em>
+                    `);
+                    poiMarkers.push(marker);
+                });
+                
+                // Display list
+                const poiHtml = filteredPOIs.slice(0, 20).map(poi => `
+                    <div class="poi-item" onclick="focusPOI(${poi.lat}, ${poi.lon})">
+                        <div class="poi-name">${poi.name}</div>
+                        <span class="poi-type">${poi.type}</span>
+                    </div>
+                `).join('');
+                
+                poiDiv.innerHTML = `
+                    <div class="info-box">
+                        <h3>Places Found <span class="badge badge-success">${filteredPOIs.length}</span></h3>
+                        <div class="poi-list">${poiHtml}</div>
+                        ${filteredPOIs.length > 20 ? '<p style="text-align: center; margin-top: 0.5rem; color: #6c757d; font-size: 0.85rem;">Showing first 20 results</p>' : ''}
+                    </div>
+                `;
+                
+            } catch (error) {
+                errorDiv.innerHTML = `<div class="error">Error: ${error.message}</div>`;
+                poiDiv.innerHTML = '';
+            } finally {
+                btn.disabled = false;
+            }
+        }
+        
+        function focusPOI(lat, lon) {
+            map.setView([lat, lon], 17);
+        }
+    </script>
+</body>
+</html>

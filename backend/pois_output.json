@@ -1,0 +1,3666 @@
+
+🗺️  Overpass Service Test Suite
+
+============================================================
+Testing Overpass Service - POIs in Bounding Box
+============================================================
+✓ Overpass service initialized
+  Base URL: https://overpass-api.de/api/interpreter
+
+Bounding Box:
+  Southwest: (37.778, -122.42)
+  Northeast: (37.785, -122.405)
+
+Requesting POIs...
+------------------------------------------------------------
+✓ POIs retrieved successfully!
+
+POI Summary:
+------------------------------------------------------------
+  Total POIs found: 221
+
+  POIs by Type:
+    restaurant: 68
+    bicycle_parking: 54
+    artwork: 29
+    cafe: 24
+    bar: 15
+    toilets: 10
+    pub: 5
+    information: 5
+    drinking_water: 5
+    parking: 3
+    museum: 2
+    attraction: 1
+
+  Sample POIs (first 10):
+------------------------------------------------------------
+  1. Civic Center Garage
+     Type: parking | Location: (37.780278, -122.417475)
+     Amenity: parking
+
+  2. Unknown
+     Type: toilets | Location: (37.784332, -122.407829)
+     Amenity: toilets
+
+  3. Tempest
+     Type: pub | Location: (37.781226, -122.406257)
+     Amenity: pub
+
+  4. Teo Restaurant & Bar
+     Type: restaurant | Location: (37.779009, -122.410915)
+     Amenity: restaurant
+
+  5. Custom Lounge
+     Type: pub | Location: (37.778641, -122.409904)
+     Amenity: pub
+
+  6. Tú Lan
+     Type: restaurant | Location: (37.781877, -122.410081)
+     Amenity: restaurant
+
+  7. Simon Bolivar
+     Type: artwork | Location: (37.779817, -122.414989)
+     Tourism: artwork
+
+  8. Son & Garden
+     Type: restaurant | Location: (37.783246, -122.419085)
+     Amenity: restaurant
+
+  9. Jarin Thia Cuisine
+     Type: restaurant | Location: (37.783909, -122.419645)
+     Amenity: restaurant
+
+  10. Unknown
+     Type: toilets | Location: (37.784031, -122.412444)
+     Amenity: toilets
+
+============================================================
+✓ Test completed successfully!
+============================================================
+
+💾 Full POI data saved to: pois_output.json
+
+============================================================
+Testing Overpass Service - POIs Along Route
+============================================================
+Route with 5 points
+Buffer: 100 meters
+
+Searching for POIs...
+------------------------------------------------------------
+7.7786408,
+      "lon": -122.409904,
+      "tags": {
+        "amenity": "pub",
+        "name": "Custom Lounge"
+      },
+      "name": "Custom Lounge",
+      "type": "pub"
+    },
+    {
+      "id": 370198231,
+      "lat": 37.7818767,
+      "lon": -122.410081,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "8",
+        "addr:state": "CA",
+        "addr:street": "6th Street",
+        "alt_name": "Tu Lan Restaurant",
+        "amenity": "restaurant",
+        "changing_table": "no",
+        "check_date": "2025-12-02",
+        "cuisine": "vietnamese",
+        "name": "T\u00fa Lan",
+        "opening_hours": "Mo-Fr 11:00-20:00",
+        "outdoor_seating": "no",
+        "takeaway": "yes",
+        "toilets": "yes",
+        "toilets:access": "customers",
+        "toilets:wheelchair": "no",
+        "wheelchair": "limited"
+      },
+      "name": "T\u00fa Lan",
+      "type": "restaurant"
+    },
+    {
+      "id": 411095145,
+      "lat": 37.7798172,
+      "lon": -122.414989,
+      "tags": {
+        "artist_name": "Adamo Tadolini",
+        "artwork_type": "statue",
+        "material": "bronze",
+        "name": "Simon Bolivar",
+        "statue": "equestrian",
+        "subject:wikidata": "Q8605",
+        "subject:wikipedia": "en:Sim\u00f3n Bol\u00edvar",
+        "tourism": "artwork",
+        "wikidata": "Q15717078"
+      },
+      "name": "Simon Bolivar",
+      "type": "artwork"
+    },
+    {
+      "id": 432822679,
+      "lat": 37.7832465,
+      "lon": -122.4190847,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "700",
+        "addr:state": "CA",
+        "addr:street": "Polk Street",
+        "amenity": "restaurant",
+        "contact:facebook": "https://www.facebook.com/people/Son-Garden/100026223653553/",
+        "contact:instagram": "sonandgarden",
+        "email": "eat@sonandgarden.com",
+        "name": "Son & Garden",
+        "opening_hours": "Mo-Th 09:00-15:00,17:00-21:00; Fr,Sa 09:00-15:00,17:00-21:30; Su 09:00-15:00,17:00-21:00",
+        "opening_hours:url": "https://sonandgarden.com/san-francisco",
+        "phone": "+1 415 9137404",
+        "website": "https://sonandgarden.com/san-francisco"
+      },
+      "name": "Son & Garden",
+      "type": "restaurant"
+    },
+    {
+      "id": 432826454,
+      "lat": 37.7839089,
+      "lon": -122.4196454,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Jarin Thia Cuisine",
+        "phone": "+1 4155635746"
+      },
+      "name": "Jarin Thia Cuisine",
+      "type": "restaurant"
+    },
+    {
+      "id": 432827778,
+      "lat": 37.784031,
+      "lon": -122.4124442,
+      "tags": {
+        "amenity": "toilets"
+      },
+      "name": "Unknown",
+      "type": "toilets"
+    },
+    {
+      "id": 621179351,
+      "lat": 37.7814985,
+      "lon": -122.4052119,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:country": "US",
+        "addr:housenumber": "198",
+        "addr:postcode": "94103",
+        "addr:state": "CA",
+        "addr:street": "5th Street",
+        "amenity": "pub",
+        "check_date": "2024-11-16",
+        "contact:facebook": "chieftainirishpubsf",
+        "contact:instagram": "Chieftainpubsf",
+        "contact:tripadvisor": "https://www.tripadvisor.com/Restaurant_Review-g60713-d537705-Reviews-The_Chieftain_Irish_Pub_Restaurant-San_Francisco_California.html",
+        "contact:twitter": "ChieftainPubSF",
+        "cuisine": "burger;wings;fish_and_chips;irish",
+        "email": "info@thechieftain.com",
+        "food": "yes",
+        "name": "The Chieftain Irish Pub & Restaurant",
+        "opening_hours": "Mo-Th,Su 16:00-25:30; Fr-Sa 12:00-25:30",
+        "opening_hours:url": "https://www.thechieftain.com/location/the-chieftain/",
+        "phone": "+1 415 6150916",
+        "website": "https://www.thechieftain.com/",
+        "website:menu": "https://www.thechieftain.com/menus/"
+      },
+      "name": "The Chieftain Irish Pub & Restaurant",
+      "type": "pub"
+    },
+    {
+      "id": 765404278,
+      "lat": 37.7830438,
+      "lon": -122.4076714,
+      "tags": {
+        "addr:housenumber": "4",
+        "addr:postcode": "94103",
+        "addr:street": "Mint Plaza",
+        "amenity": "restaurant",
+        "check_date": "2023-10-14",
+        "cuisine": "sushi",
+        "name": "Sushi Hashiri"
+      },
+      "name": "Sushi Hashiri",
+      "type": "restaurant"
+    },
+    {
+      "id": 1368719000,
+      "lat": 37.7829023,
+      "lon": -122.4078399,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "8",
+        "addr:postcode": "94103",
+        "addr:state": "CA",
+        "addr:street": "Mint Plaza",
+        "amenity": "restaurant",
+        "check_date": "2025-11-10",
+        "cuisine": "burmese",
+        "diet:gluten_free": "yes",
+        "diet:vegan": "yes",
+        "name": "Burma Love",
+        "opening_hours": "Mo-Th 11:30-21:30; Fr-Sa 11:30-22:00; Su 12:00-21:00",
+        "phone": "+1 415 7644965",
+        "website": "https://www.burmalove.co/"
+      },
+      "name": "Burma Love",
+      "type": "restaurant"
+    },
+    {
+      "id": 1393986237,
+      "lat": 37.783205,
+      "lon": -122.4068571,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "67",
+        "addr:state": "CA",
+        "addr:street": "5th Street",
+        "amenity": "cafe",
+        "check_date": "2024-04-14",
+        "cuisine": "mediterranean",
+        "name": "zevi caf\u00e9 & bistro"
+      },
+      "name": "zevi caf\u00e9 & bistro",
+      "type": "cafe"
+    },
+    {
+      "id": 1506345270,
+      "lat": 37.7807517,
+      "lon": -122.4057007,
+      "tags": {
+        "addr:housenumber": "937",
+        "addr:postcode": "94103",
+        "addr:street": "Howard Street",
+        "amenity": "restaurant",
+        "check_date": "2024-10-29",
+        "cuisine": "vietnamese",
+        "name": "Tin",
+        "opening_hours": "Mo-Sa 11:30-13:30,17:30-20:30; PH,Su off",
+        "website": "https://www.tinsf.com/"
+      },
+      "name": "Tin",
+      "type": "restaurant"
+    },
+    {
+      "id": 1630822761,
+      "lat": 37.7782462,
+      "lon": -122.415677,
+      "tags": {
+        "addr:housenumber": "1244",
+        "addr:street": "Market Street",
+        "amenity": "restaurant",
+        "check_date": "2025-03-04",
+        "cuisine": "coffee_shop;italian;burger;seafood",
+        "level": "0",
+        "name": "Local Diner",
+        "wheelchair": "yes"
+      },
+      "name": "Local Diner",
+      "type": "restaurant"
+    },
+    {
+      "id": 1676994251,
+      "lat": 37.7832783,
+      "lon": -122.4060429,
+      "tags": {
+        "amenity": "bar",
+        "capacity": "227",
+        "check_date": "2022-11-12",
+        "name": "Executive Order"
+      },
+      "name": "Executive Order",
+      "type": "bar"
+    },
+    {
+      "id": 1773719073,
+      "lat": 37.780692,
+      "lon": -122.4165534,
+      "tags": {
+        "addr:housenumber": "272",
+        "addr:street": "McAllister Street",
+        "amenity": "restaurant",
+        "check_date": "2025-11-19",
+        "level": "0",
+        "name": "Chao Pescao",
+        "opening_hours": "Mo-Sa 11:30-20:30",
+        "phone": "+1 415-621-2200",
+        "website": "https://www.chaopescaosf.com/",
+        "wheelchair": "yes"
+      },
+      "name": "Chao Pescao",
+      "type": "restaurant"
+    },
+    {
+      "id": 1825310664,
+      "lat": 37.781741,
+      "lon": -122.409897,
+      "tags": {
+        "addr:housenumber": "28",
+        "addr:street": "6th Street",
+        "amenity": "restaurant",
+        "cuisine": "american",
+        "name": "Dottie's True Blue Cafe",
+        "opening_hours": "Sa-Su 7:30-16:00; Mo 7:30-15:00; Th-Fr 7:30-15:00",
+        "website": "http://dotties.biz/"
+      },
+      "name": "Dottie's True Blue Cafe",
+      "type": "restaurant"
+    },
+    {
+      "id": 1854985759,
+      "lat": 37.7842286,
+      "lon": -122.4090955,
+      "tags": {
+        "addr:housenumber": "83",
+        "addr:postcode": "94102",
+        "addr:street": "Eddy Street",
+        "amenity": "restaurant",
+        "cuisine": "indian",
+        "name": "Little Delhi",
+        "source": "Survey"
+      },
+      "name": "Little Delhi",
+      "type": "restaurant"
+    },
+    {
+      "id": 1975916973,
+      "lat": 37.7821173,
+      "lon": -122.4171746,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "455",
+        "addr:state": "CA",
+        "addr:street": "Larkin Street",
+        "amenity": "cafe",
+        "check_date": "2023-05-18",
+        "cuisine": "arab;deli;ice_cream;sandwich",
+        "disused:amenity": "restaurant",
+        "name": "DeliShack",
+        "old_name": "Burmese Kitchen",
+        "opening_hours": "Mo-Fr 07:00-21:00; Sa-Su 09:00-20:00"
+      },
+      "name": "DeliShack",
+      "type": "cafe"
+    },
+    {
+      "id": 2115315625,
+      "lat": 37.7807775,
+      "lon": -122.4087266,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "100",
+        "addr:postcode": "94103",
+        "addr:street": "6th Street",
+        "amenity": "restaurant",
+        "check_date": "2024-04-14",
+        "cuisine": "vietnamese",
+        "name": "Miss Saigon",
+        "outdoor_seating": "no",
+        "phone": "+1-415-522-0322",
+        "takeaway": "yes",
+        "website": "www.misssaigonsf.com"
+      },
+      "name": "Miss Saigon",
+      "type": "restaurant"
+    },
+    {
+      "id": 2253031247,
+      "lat": 37.7847871,
+      "lon": -122.4126504,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "397",
+        "addr:state": "CA",
+        "addr:street": "Ellis Street",
+        "amenity": "bar",
+        "name": "Cinnabar",
+        "outdoor_seating": "no"
+      },
+      "name": "Cinnabar",
+      "type": "bar"
+    },
+    {
+      "id": 2259028667,
+      "lat": 37.7822886,
+      "lon": -122.4172138,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "460",
+        "addr:state": "CA",
+        "addr:street": "Larkin Street",
+        "amenity": "pub",
+        "contact:facebook": "Shovels-Bar-101124368167456",
+        "cuisine": "burger;hot_dog",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "yes",
+        "drink:beer": "yes",
+        "drink:whisky": "yes",
+        "food": "yes",
+        "indoor_seating": "yes",
+        "name": "Shovels Bar",
+        "opening_hours:url": "Mo-Su 12:00-22:00",
+        "phone": "+1 415 8298979",
+        "sport": "billiards",
+        "website": "https://shovelsbar.com/",
+        "website:calendar": "http://shovelsbar.com/shovels-calendar/",
+        "website:menu": "https://shovelsbar.com/menu/"
+      },
+      "name": "Shovels Bar",
+      "type": "pub"
+    },
+    {
+      "id": 2343615613,
+      "lat": 37.7846208,
+      "lon": -122.409519,
+      "tags": {
+        "addr:housenumber": "115",
+        "addr:postcode": "94102",
+        "addr:street": "Mason Street",
+        "amenity": "bar",
+        "name": "Union Square Sports Bar"
+      },
+      "name": "Union Square Sports Bar",
+      "type": "bar"
+    },
+    {
+      "id": 2879135420,
+      "lat": 37.7841206,
+      "lon": -122.4105077,
+      "tags": {
+        "amenity": "bar",
+        "name": "Pandora Karaoke Bar",
+        "smoking": "no"
+      },
+      "name": "Pandora Karaoke Bar",
+      "type": "bar"
+    },
+    {
+      "id": 2905105740,
+      "lat": 37.7783412,
+      "lon": -122.412281,
+      "tags": {
+        "amenity": "parking",
+        "name": "Public Parking",
+        "parking": "multi-storey",
+        "surface": "concrete"
+      },
+      "name": "Public Parking",
+      "type": "parking"
+    },
+    {
+      "id": 3134698963,
+      "lat": 37.7781209,
+      "lon": -122.4186574,
+      "tags": {
+        "amenity": "bicycle_parking"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 3189528511,
+      "lat": 37.7839783,
+      "lon": -122.4178536,
+      "tags": {
+        "addr:housenumber": "645",
+        "addr:street": "Larkin Street",
+        "amenity": "restaurant",
+        "check_date": "2023-09-04",
+        "contact:facebook": "https://www.facebook.com/TurtleTowerSF",
+        "contact:twitter": "https://twitter.com/TurtleTowerSF",
+        "cuisine": "vietnamese",
+        "name": "Turtle Tower",
+        "name:en": "Turtle Tower",
+        "name:vi": "Th\u00e1p R\u00f9a",
+        "opening_hours": "09:00-16:00",
+        "outdoor_seating": "no",
+        "payment:credit_cards": "yes",
+        "phone": "+1 415-409-3333",
+        "website": "https://turtletowersf.com/",
+        "wheelchair": "yes"
+      },
+      "name": "Turtle Tower",
+      "type": "restaurant"
+    },
+    {
+      "id": 3243817299,
+      "lat": 37.7842248,
+      "lon": -122.4094626,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "101",
+        "addr:postcode": "94102",
+        "addr:state": "CA",
+        "addr:street": "Eddy Street",
+        "amenity": "restaurant",
+        "cuisine": "indian;pakistani",
+        "name": "Punjab Kabab House"
+      },
+      "name": "Punjab Kabab House",
+      "type": "restaurant"
+    },
+    {
+      "id": 3397772546,
+      "lat": 37.7833605,
+      "lon": -122.406933,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "360",
+        "addr:postcode": "94103",
+        "addr:state": "CA",
+        "addr:street": "Jessie Street",
+        "amenity": "restaurant",
+        "check_date": "2024-04-14",
+        "cuisine": "international",
+        "name": "The CAVALIER",
+        "phone": "+1-415-321-6000",
+        "smoking": "no",
+        "website": "https://thecavaliersf.com/"
+      },
+      "name": "The CAVALIER",
+      "type": "restaurant"
+    },
+    {
+      "id": 3397775399,
+      "lat": 37.7829379,
+      "lon": -122.4065117,
+      "tags": {
+        "amenity": "restaurant",
+        "check_date": "2024-04-14",
+        "cuisine": "mediterranean",
+        "name": "SOMA Restaurant & Bar",
+        "wheelchair": "yes"
+      },
+      "name": "SOMA Restaurant & Bar",
+      "type": "restaurant"
+    },
+    {
+      "id": 3648490271,
+      "lat": 37.7838252,
+      "lon": -122.4177905,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "631",
+        "addr:postcode": "94109",
+        "addr:state": "CA",
+        "addr:street": "Larkin Street",
+        "amenity": "restaurant",
+        "check_date": "2022-07-18",
+        "cuisine": "vietnamese",
+        "fixme": "Add phone number written on sign",
+        "indoor_seating": "yes",
+        "name": "Golden Lotus",
+        "outdoor_seating": "no",
+        "smoking": "no",
+        "wheelchair": "yes"
+      },
+      "name": "Golden Lotus",
+      "type": "restaurant"
+    },
+    {
+      "id": 3648551975,
+      "lat": 37.7838789,
+      "lon": -122.4177987,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "637",
+        "addr:postcode": "94109",
+        "addr:state": "CA",
+        "addr:street": "Larkin Street",
+        "amenity": "restaurant",
+        "cuisine": "vietnamese",
+        "name": "Pho 2000"
+      },
+      "name": "Pho 2000",
+      "type": "restaurant"
+    },
+    {
+      "id": 3648576378,
+      "lat": 37.7841199,
+      "lon": -122.4178575,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "655",
+        "addr:postcode": "94109",
+        "addr:state": "CA",
+        "addr:street": "Larkin Street",
+        "amenity": "restaurant",
+        "check_date": "2023-02-08",
+        "cuisine": "mexican",
+        "disused:amenity": "restaurant",
+        "name": "Los 3 Cachanillas"
+      },
+      "name": "Los 3 Cachanillas",
+      "type": "restaurant"
+    },
+    {
+      "id": 3648598647,
+      "lat": 37.7839898,
+      "lon": -122.4177713,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "2",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 3648686273,
+      "lat": 37.7839884,
+      "lon": -122.4175345,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "666",
+        "addr:postcode": "94109",
+        "addr:state": "CA",
+        "addr:street": "Larkin Street",
+        "amenity": "restaurant",
+        "cuisine": "vietnamese",
+        "name": "Hoa Phat"
+      },
+      "name": "Hoa Phat",
+      "type": "restaurant"
+    },
+    {
+      "id": 3660306838,
+      "lat": 37.7817167,
+      "lon": -122.4186499,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:country": "US",
+        "addr:housenumber": "450",
+        "addr:postcode": "94102",
+        "addr:state": "CA",
+        "addr:street": "Golden Gate Avenue",
+        "amenity": "cafe",
+        "name": "Cafe 450 Eurest Dining",
+        "phone": "+1 415 621 0874"
+      },
+      "name": "Cafe 450 Eurest Dining",
+      "type": "cafe"
+    },
+    {
+      "id": 3725249094,
+      "lat": 37.7838171,
+      "lon": -122.4090682,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "10",
+        "addr:postcode": "94102",
+        "addr:state": "CA",
+        "addr:street": "Mason Street",
+        "amenity": "restaurant",
+        "cuisine": "mexican",
+        "name": "Taquerria Castillo B2",
+        "phone": "+1-415-986-0426"
+      },
+      "name": "Taquerria Castillo B2",
+      "type": "restaurant"
+    },
+    {
+      "id": 4033949292,
+      "lat": 37.7786462,
+      "lon": -122.41569,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "25",
+        "addr:street": "Grove Street",
+        "amenity": "restaurant",
+        "check_date": "2023-01-12",
+        "cuisine": "mediterranean",
+        "indoor_seating": "yes",
+        "name": "Gyro King",
+        "outdoor_seating": "no",
+        "phone": "+1 415-621-8313",
+        "wheelchair": "yes"
+      },
+      "name": "Gyro King",
+      "type": "restaurant"
+    },
+    {
+      "id": 4033949295,
+      "lat": 37.7788287,
+      "lon": -122.4157599,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "20",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 4062437468,
+      "lat": 37.7796562,
+      "lon": -122.4144116,
+      "tags": {
+        "amenity": "cafe",
+        "indoor_seating": "no",
+        "name": "United Nations Cafe",
+        "outdoor_seating": "no",
+        "takeaway": "only"
+      },
+      "name": "United Nations Cafe",
+      "type": "cafe"
+    },
+    {
+      "id": 4062440167,
+      "lat": 37.779549,
+      "lon": -122.4141694,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "8",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 4249436492,
+      "lat": 37.7833894,
+      "lon": -122.4075539,
+      "tags": {
+        "amenity": "cafe",
+        "check_date": "2024-04-14",
+        "cuisine": "breakfast",
+        "email": "mo@moz-cafe.com",
+        "name": "Mo'z",
+        "opening_hours": "Mo-Su 06:00-17:00",
+        "phone": "+1 415 7771080",
+        "website": "http://www.moz-cafe.com"
+      },
+      "name": "Mo'z",
+      "type": "cafe"
+    },
+    {
+      "id": 4312016590,
+      "lat": 37.7818459,
+      "lon": -122.4100401,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "10",
+        "addr:postcode": "94103",
+        "addr:state": "CA",
+        "addr:street": "6th Street",
+        "amenity": "bar",
+        "cocktails": "yes",
+        "contact:facebook": "therumpusroomsf",
+        "contact:instagram": "therumpusroomsf",
+        "drink:beer": "yes",
+        "drink:wine": "yes",
+        "email": "info@therumpusroomsf.com",
+        "happy_hours": "Tu-Fr 14:00-17:00",
+        "indoor_seating": "yes",
+        "name": "The Rumpus Room",
+        "old_name": "Showdown Bar",
+        "opening_hours": "Tu-Sa 14:00-26:00; Su,Mo off",
+        "opening_hours:url": "https://www.therumpusroomsf.com/",
+        "outdoor_seating": "no",
+        "phone": "+1 415 7951413",
+        "website": "https://www.therumpusroomsf.com/",
+        "website:calendar": "https://www.therumpusroomsf.com/calendar/events/",
+        "website:menu": "https://www.therumpusroomsf.com/menu/"
+      },
+      "name": "The Rumpus Room",
+      "type": "bar"
+    },
+    {
+      "id": 4595646538,
+      "lat": 37.7843372,
+      "lon": -122.4175735,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "12",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 4595646539,
+      "lat": 37.7808388,
+      "lon": -122.415639,
+      "tags": {
+        "access": "private",
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "shed",
+        "covered": "yes",
+        "description": "A set of two-level racks behind a locked gate, but accessible from outside.",
+        "operator": "UC Law San Francisco"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 4595646540,
+      "lat": 37.7805484,
+      "lon": -122.415955,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "wave",
+        "capacity": "4",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 4612096188,
+      "lat": 37.7812144,
+      "lon": -122.4087737,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Supremo's Pizza"
+      },
+      "name": "Supremo's Pizza",
+      "type": "restaurant"
+    },
+    {
+      "id": 4617963806,
+      "lat": 37.7810727,
+      "lon": -122.4133912,
+      "tags": {
+        "addr:housenumber": "86",
+        "addr:street": "McAllister Street",
+        "amenity": "restaurant",
+        "check_date": "2025-11-19",
+        "cuisine": "mexican",
+        "level": "0",
+        "name": "Taqueria Castillo",
+        "wheelchair": "yes"
+      },
+      "name": "Taqueria Castillo",
+      "type": "restaurant"
+    },
+    {
+      "id": 4624952481,
+      "lat": 37.7813048,
+      "lon": -122.4172998,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "401",
+        "addr:state": "CA",
+        "addr:street": "Golden Gate Avenue",
+        "amenity": "cafe",
+        "contact:yelp": "https://www.yelp.com/biz/the-coffee-smith-san-francisco-2",
+        "cuisine": "coffee_shop;sandwich",
+        "email": "thecoffeesmithsf@gmail.com",
+        "name": "The Coffee Smith",
+        "opening_hours": "Mo-Fr 06:15-15:15",
+        "website": "https://www.thecoffeesmithsf.com/"
+      },
+      "name": "The Coffee Smith",
+      "type": "cafe"
+    },
+    {
+      "id": 4625139242,
+      "lat": 37.7829962,
+      "lon": -122.4159228,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Hai's Restaurant"
+      },
+      "name": "Hai's Restaurant",
+      "type": "restaurant"
+    },
+    {
+      "id": 4625221570,
+      "lat": 37.783539,
+      "lon": -122.4177347,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "611",
+        "addr:state": "CA",
+        "addr:street": "Larkin Street",
+        "amenity": "cafe",
+        "cuisine": "vietnamese",
+        "indoor_seating": "yes",
+        "name": "Lafayette Coffee Shop",
+        "outdoor_seating": "no",
+        "wheelchair": "yes"
+      },
+      "name": "Lafayette Coffee Shop",
+      "type": "cafe"
+    },
+    {
+      "id": 4625221573,
+      "lat": 37.7818021,
+      "lon": -122.4152583,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "280",
+        "addr:state": "CA",
+        "addr:street": "Golden Gate Avenue",
+        "alt_name": "Morty's Delicatessen",
+        "amenity": "restaurant",
+        "name": "Morty's"
+      },
+      "name": "Morty's",
+      "type": "restaurant"
+    },
+    {
+      "id": 4625221577,
+      "lat": 37.7816286,
+      "lon": -122.4166811,
+      "tags": {
+        "addr:housenumber": "366",
+        "addr:street": "Golden Gate Avenue",
+        "amenity": "restaurant",
+        "check_date": "2025-07-18",
+        "cuisine": "korean",
+        "name": "Jin Mi Korean Cuisine",
+        "opening_hours": "Mo-Fr,Su 11:00-20:00; Sa off",
+        "outdoor_seating": "no",
+        "phone": "+1 415 8345007",
+        "website": "https://www.jinmikoreancuisine.com/"
+      },
+      "name": "Jin Mi Korean Cuisine",
+      "type": "restaurant"
+    },
+    {
+      "id": 4628442792,
+      "lat": 37.7838049,
+      "lon": -122.4160942,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "309",
+        "addr:state": "CA",
+        "addr:street": "Hyde Street",
+        "amenity": "cafe",
+        "cuisine": "sandwich;vietnamese",
+        "name": "Sing Sing",
+        "name:zh": "\u661f\u661f\u5496\u5561\u5ba4",
+        "opening_hours:signed": "no"
+      },
+      "name": "Sing Sing",
+      "type": "cafe"
+    },
+    {
+      "id": 4631708918,
+      "lat": 37.7847489,
+      "lon": -122.4129205,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "401",
+        "addr:state": "CA",
+        "addr:street": "Ellis Street",
+        "amenity": "bar",
+        "name": "Jonell's",
+        "outdoor_seating": "no"
+      },
+      "name": "Jonell's",
+      "type": "bar"
+    },
+    {
+      "id": 4637571919,
+      "lat": 37.7845601,
+      "lon": -122.4142515,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Cafe Ellis"
+      },
+      "name": "Cafe Ellis",
+      "type": "cafe"
+    },
+    {
+      "id": 4637572294,
+      "lat": 37.784101,
+      "lon": -122.4144684,
+      "tags": {
+        "addr:housenumber": "325",
+        "addr:street": "Leavenworth Street",
+        "amenity": "cafe",
+        "cafe": "yes",
+        "check_date": "2023-07-05",
+        "name": "Kim Huong"
+      },
+      "name": "Kim Huong",
+      "type": "cafe"
+    },
+    {
+      "id": 4637572296,
+      "lat": 37.7845211,
+      "lon": -122.4128553,
+      "tags": {
+        "amenity": "restaurant",
+        "check_date": "2023-01-14",
+        "cuisine": "chinese",
+        "name": "Lin's Kitchen"
+      },
+      "name": "Lin's Kitchen",
+      "type": "restaurant"
+    },
+    {
+      "id": 4637773270,
+      "lat": 37.7847337,
+      "lon": -122.4130515,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "411",
+        "addr:state": "CA",
+        "addr:street": "Ellis Street",
+        "amenity": "cafe",
+        "check_date": "2023-02-15",
+        "cuisine": "vietnamese;sandwich",
+        "description": "Vietnamese sandwiches and coffee",
+        "drink:coffee": "yes",
+        "name": "Mom Banh Mi",
+        "outdoor_seating": "no",
+        "phone": "+1 415-796-2492"
+      },
+      "name": "Mom Banh Mi",
+      "type": "cafe"
+    },
+    {
+      "id": 4637773271,
+      "lat": 37.7848698,
+      "lon": -122.4138313,
+      "tags": {
+        "addr:housenumber": "468",
+        "addr:street": "Ellis Street",
+        "amenity": "restaurant",
+        "check_date": "2023-02-15",
+        "name": "Chicos Pizza",
+        "phone": "+1 415-776-2222"
+      },
+      "name": "Chicos Pizza",
+      "type": "restaurant"
+    },
+    {
+      "id": 4637773278,
+      "lat": 37.7846916,
+      "lon": -122.4132653,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "425",
+        "addr:state": "CA",
+        "addr:street": "Ellis Street",
+        "amenity": "restaurant",
+        "check_date": "2023-02-15",
+        "name": "Falafel City",
+        "old_name": "Tikka Masala"
+      },
+      "name": "Falafel City",
+      "type": "restaurant"
+    },
+    {
+      "id": 4806805086,
+      "lat": 37.7817366,
+      "lon": -122.410617,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "1019",
+        "addr:postcode": "94103",
+        "addr:state": "CA",
+        "addr:street": "Market Street",
+        "amenity": "cafe",
+        "check_date": "2025-03-04",
+        "check_date:opening_hours": "2024-12-03",
+        "contact:facebook": "chaibarsf",
+        "contact:instagram": "chaibarsf",
+        "contact:yelp": "https://www.yelp.com/biz/chai-bar-by-david-rio-san-francisco-4",
+        "cuisine": "coffee_shop",
+        "diet:vegetarian": "yes",
+        "drink:coffee": "yes",
+        "drink:espresso": "yes",
+        "drink:tea": "yes",
+        "email": "info@chaibarsf.com",
+        "food": "yes",
+        "indoor_seating": "yes",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "name": "Chai Bar by David Rio",
+        "opening_hours": "Mo-Fr 07:30-15:30; Sa 09:00-14:00; Su off",
+        "opening_hours:signed": "no",
+        "opening_hours:url": "https://www.chaibarsf.com/",
+        "outdoor_seating": "yes",
+        "phone": "+1 415 8650677",
+        "smoking": "no",
+        "website": "https://www.chaibarsf.com/",
+        "website:menu": "https://www.chaibarsf.com/s/HangingMenu-web-2022-08.pdf",
+        "wheelchair": "yes"
+      },
+      "name": "Chai Bar by David Rio",
+      "type": "cafe"
+    },
+    {
+      "id": 4818959521,
+      "lat": 37.7833354,
+      "lon": -122.4183561,
+      "tags": {
+        "addr:housenumber": "642",
+        "addr:street": "Eddy Street",
+        "amenity": "restaurant",
+        "name": "Vietnam House"
+      },
+      "name": "Vietnam House",
+      "type": "restaurant"
+    },
+    {
+      "id": 5008465322,
+      "lat": 37.7842017,
+      "lon": -122.4169845,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Mom's Soul Groove",
+        "name:en": "Mom's Soul Groove"
+      },
+      "name": "Mom's Soul Groove",
+      "type": "cafe"
+    },
+    {
+      "id": 5134506932,
+      "lat": 37.7814568,
+      "lon": -122.4107385,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "1025",
+        "addr:postcode": "94103",
+        "addr:state": "CA",
+        "addr:street": "Market Street",
+        "email": "info@internationalartmuseum.org",
+        "name": "International Art Museum of America",
+        "phone": "+1 415-376-6344",
+        "tourism": "museum",
+        "website": "https://www.iamasf.org/",
+        "wikidata": "Q18325665",
+        "wikipedia": "en:International Art Museum of America"
+      },
+      "name": "International Art Museum of America",
+      "type": "museum"
+    },
+    {
+      "id": 5134621034,
+      "lat": 37.783915,
+      "lon": -122.4141209,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "398",
+        "addr:postcode": "94102",
+        "addr:state": "CA",
+        "addr:street": "Eddy Street",
+        "email": "info@tenderloinmuseum.org",
+        "name": "Tenderloin Museum",
+        "phone": "+1 415-351-1912",
+        "tourism": "museum",
+        "website": "http://www.tenderloinmuseum.org/"
+      },
+      "name": "Tenderloin Museum",
+      "type": "museum"
+    },
+    {
+      "id": 5279875621,
+      "lat": 37.7833244,
+      "lon": -122.4126199,
+      "tags": {
+        "addr:housenumber": "219",
+        "addr:postcode": "94102",
+        "addr:street": "Jones Street",
+        "amenity": "restaurant",
+        "cuisine": "arab;mediterranean",
+        "name": "Yemen Kitchen",
+        "opening_hours": "Mo-Sa 10:00-22:00; Su 11:00-21:00",
+        "phone": "+1-415-214-3575"
+      },
+      "name": "Yemen Kitchen",
+      "type": "restaurant"
+    },
+    {
+      "id": 5441990638,
+      "lat": 37.7782335,
+      "lon": -122.4131429,
+      "tags": {
+        "artist_name": "Lawrence Argent",
+        "artwork_type": "sculpture",
+        "height": "28",
+        "material": "steel",
+        "name": "Venus",
+        "tourism": "artwork",
+        "website": "https://www.trinitysf.com/trinity-place/about/"
+      },
+      "name": "Venus",
+      "type": "artwork"
+    },
+    {
+      "id": 5509732624,
+      "lat": 37.7837029,
+      "lon": -122.4153623,
+      "tags": {
+        "addr:street": "Eddy Street",
+        "amenity": "restaurant",
+        "cuisine": "japanese",
+        "name": "Onsen"
+      },
+      "name": "Onsen",
+      "type": "restaurant"
+    },
+    {
+      "id": 5596090221,
+      "lat": 37.7822987,
+      "lon": -122.4188956,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "600",
+        "addr:postcode": "94102",
+        "addr:state": "CA",
+        "addr:street": "Polk Street",
+        "amenity": "bar",
+        "check_date": "2025-07-15",
+        "cocktails": "yes",
+        "contact:facebook": "whitechapelsf",
+        "contact:instagram": "whitechapelsf",
+        "contact:twitter": "whitechapelsf",
+        "drink:beer": "yes",
+        "drink:wine": "yes",
+        "email": "info@whitechapelsf.com",
+        "food": "yes",
+        "indoor_seating": "yes",
+        "internet_access": "wlan",
+        "name": "Whitechapel",
+        "opening_hours": "Mo,Tu,Su off; We,Th 17:00-22:00; Fr,Sa 17:00-24:00",
+        "opening_hours:kitchen": "We-Sa 17:00-21:00",
+        "opening_hours:url": "https://www.whitechapelsf.com",
+        "outdoor_seating": "no",
+        "reservation": "no",
+        "sport": "billiards",
+        "url": "https://menu.smarttab.com/whitechapelsf/1/",
+        "website": "https://www.whitechapelsf.com",
+        "wheelchair": "yes"
+      },
+      "name": "Whitechapel",
+      "type": "bar"
+    },
+    {
+      "id": 5748040763,
+      "lat": 37.7809134,
+      "lon": -122.4123694,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "american",
+        "name": "Villon",
+        "outdoor_seating": "yes",
+        "website": "http://www.villonsf.com/"
+      },
+      "name": "Villon",
+      "type": "restaurant"
+    },
+    {
+      "id": 5891198685,
+      "lat": 37.7819266,
+      "lon": -122.4077866,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "952",
+        "addr:postcode": "94103",
+        "addr:state": "CA",
+        "addr:street": "Mission Street",
+        "amenity": "cafe",
+        "check_date": "2024-04-14",
+        "name": "Barbary Coast",
+        "opening_hours": "Mo-Su 08:00-21:45",
+        "phone": "+1 415-243-4400",
+        "shop": "cannabis",
+        "website": "http://barbarycoastsf.org"
+      },
+      "name": "Barbary Coast",
+      "type": "cafe"
+    },
+    {
+      "id": 6333906199,
+      "lat": 37.7821072,
+      "lon": -122.4114265,
+      "tags": {
+        "artist_name": "Mitsu Overstreet",
+        "artwork_type": "mural",
+        "name": "Fear Head",
+        "tourism": "artwork",
+        "website": "https://www.wescover.com/p/street-murals-by-mitsu-overstreet-at-56-golden-gate-avenue-sf--PHJulmMWCTCW"
+      },
+      "name": "Fear Head",
+      "type": "artwork"
+    },
+    {
+      "id": 6371909286,
+      "lat": 37.7839108,
+      "lon": -122.4144505,
+      "tags": {
+        "addr:housenumber": "400",
+        "addr:street": "Eddy Street",
+        "amenity": "bar",
+        "name": "Black cat"
+      },
+      "name": "Black cat",
+      "type": "bar"
+    },
+    {
+      "id": 6371947786,
+      "lat": 37.780993,
+      "lon": -122.4122888,
+      "tags": {
+        "amenity": "bar",
+        "check_date": "2025-11-19",
+        "cocktails": "yes",
+        "contact:facebook": "CharmainesSanFrancisco",
+        "contact:yelp": "https://www.yelp.com/biz/charmaines-san-francisco",
+        "email": "info@charmainessf.com",
+        "name": "Charmaine's rooftop bar",
+        "official_name": "Charmaine's",
+        "opening_hours": "Mo-Th 17:00-23:00; Fr 17:00-24:00; Sa 16:00-24:00; Su 16:00-23:00",
+        "opening_hours:url": "https://www.charmainessf.com",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+1 415 7863467",
+        "reservation": "yes",
+        "website": "https://www.charmainessf.com"
+      },
+      "name": "Charmaine's rooftop bar",
+      "type": "bar"
+    },
+    {
+      "id": 6489206272,
+      "lat": 37.7835843,
+      "lon": -122.4055397,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "4",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 6489206273,
+      "lat": 37.7832836,
+      "lon": -122.405951,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "2",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 6489206274,
+      "lat": 37.7837664,
+      "lon": -122.4053095,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "4"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 6489206276,
+      "lat": 37.783269,
+      "lon": -122.4059687,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "2",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 6489206278,
+      "lat": 37.7832984,
+      "lon": -122.4059316,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "2",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 6489206279,
+      "lat": 37.783213,
+      "lon": -122.4060396,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "2",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 6498982997,
+      "lat": 37.7793518,
+      "lon": -122.416512,
+      "tags": {
+        "artist_name": "George Rickey",
+        "material": "steel",
+        "name": "Double L Excentric Gyratory",
+        "start_date": "1982",
+        "tourism": "artwork",
+        "wikidata": "Q22077757"
+      },
+      "name": "Double L Excentric Gyratory",
+      "type": "artwork"
+    },
+    {
+      "id": 6541967407,
+      "lat": 37.7799826,
+      "lon": -122.4147172,
+      "tags": {
+        "artwork_type": "installation",
+        "tourism": "artwork"
+      },
+      "name": "Unknown",
+      "type": "artwork"
+    },
+    {
+      "id": 6564052381,
+      "lat": 37.7810406,
+      "lon": -122.412241,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "14",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 6604085453,
+      "lat": 37.7789486,
+      "lon": -122.415473,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "coffee_shop;sandwich",
+        "indoor": "area",
+        "level": "-1",
+        "level:ref": "L",
+        "name": "Poets Cafe",
+        "opening_hours": "Sa,Su off; Mo-Fr 08:30-15:30",
+        "opening_hours:url": "https://sfpl.org/locations/main-library/poets-cafe",
+        "operator": "Peet\u2019s",
+        "operator:wikidata": "Q1094101",
+        "website": "https://sfpl.org/locations/main-library/poets-cafe"
+      },
+      "name": "Poets Cafe",
+      "type": "cafe"
+    },
+    {
+      "id": 6604085462,
+      "lat": 37.7790982,
+      "lon": -122.4159127,
+      "tags": {
+        "information": "map",
+        "level": "2",
+        "tourism": "information"
+      },
+      "name": "Unknown",
+      "type": "information"
+    },
+    {
+      "id": 6651758229,
+      "lat": 37.784286,
+      "lon": -122.4120542,
+      "tags": {
+        "artist_name": "Bruce Hasson",
+        "artwork_type": "sculpture",
+        "name": "Ark",
+        "start_date": "1985",
+        "tourism": "artwork",
+        "website": "https://www.artandarchitecture-sf.com/bruce-hassons-ark.html"
+      },
+      "name": "Ark",
+      "type": "artwork"
+    },
+    {
+      "id": 6813200437,
+      "lat": 37.7809842,
+      "lon": -122.4115542,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "1063",
+        "addr:state": "CA",
+        "addr:street": "Market Street",
+        "amenity": "restaurant",
+        "check_date": "2024-07-09",
+        "cuisine": "american",
+        "fixme": "Does restaurant take up the entirety of this building?",
+        "name": "American Burgers & BBQ",
+        "old_name": "Panj Tara;Chanvi Eatery;Raavi Eatery"
+      },
+      "name": "American Burgers & BBQ",
+      "type": "restaurant"
+    },
+    {
+      "id": 7207282797,
+      "lat": 37.781192,
+      "lon": -122.4063164,
+      "tags": {
+        "amenity": "restaurant",
+        "contact:facebook": "TempestBar",
+        "contact:instagram": "tempestbarandbox",
+        "name": "Box Kitchen",
+        "opening_hours": "Mo-Fr 11:30-24:00; Sa,Su 17:00-24:00",
+        "opening_hours:url": "https://www.pourguys.com/tempest-box-quarantine-cuisine",
+        "phone": "+1 415 4951863",
+        "takeaway": "only",
+        "website": "https://www.pourguys.com/"
+      },
+      "name": "Box Kitchen",
+      "type": "restaurant"
+    },
+    {
+      "id": 7314070067,
+      "lat": 37.7783948,
+      "lon": -122.412143,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 7992811785,
+      "lat": 37.783536,
+      "lon": -122.40931,
+      "tags": {
+        "addr:housenumber": "25",
+        "addr:street": "Mason Street",
+        "amenity": "restaurant",
+        "check_date": "2025-12-02",
+        "level": "0",
+        "name": "DIYA Indian and Nepali food",
+        "old_name": "Farmerbrown",
+        "opening_hours": "Mo-Fr 11:00-22:00; Sa-Su 12:00-22:00",
+        "wheelchair": "yes"
+      },
+      "name": "DIYA Indian and Nepali food",
+      "type": "restaurant"
+    },
+    {
+      "id": 8190145464,
+      "lat": 37.7799597,
+      "lon": -122.4117398,
+      "tags": {
+        "amenity": "bicycle_parking"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 8641952045,
+      "lat": 37.7847109,
+      "lon": -122.4076986,
+      "tags": {
+        "level": "0",
+        "name": "Cable Car Turntable (Powell & Market)",
+        "operator": "San Francisco Municipal Railway",
+        "owner": "San Francisco Municipal Railway",
+        "tourism": "attraction",
+        "wheelchair": "no"
+      },
+      "name": "Cable Car Turntable (Powell & Market)",
+      "type": "attraction"
+    },
+    {
+      "id": 8810247738,
+      "lat": 37.7799702,
+      "lon": -122.4186964,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "4",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 8810247743,
+      "lat": 37.7805892,
+      "lon": -122.4152245,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "4",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 8810247744,
+      "lat": 37.7804306,
+      "lon": -122.4166575,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "16",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 8810247749,
+      "lat": 37.7802928,
+      "lon": -122.4151616,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "8",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 8810247750,
+      "lat": 37.7807287,
+      "lon": -122.4160297,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "7",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 8810247757,
+      "lat": 37.7806888,
+      "lon": -122.4151145,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "4",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 8815154623,
+      "lat": 37.7783705,
+      "lon": -122.4154525,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "6",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 8815154626,
+      "lat": 37.778503,
+      "lon": -122.4152927,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "6",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 8815154628,
+      "lat": 37.778024,
+      "lon": -122.4158971,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "6",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 8815154629,
+      "lat": 37.7782869,
+      "lon": -122.4150854,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "4",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 8815166417,
+      "lat": 37.7798661,
+      "lon": -122.4130432,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "8",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 8815166418,
+      "lat": 37.7807759,
+      "lon": -122.4123773,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "4",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 8815166419,
+      "lat": 37.7797348,
+      "lon": -122.4132075,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "4",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 8815166420,
+      "lat": 37.7814964,
+      "lon": -122.4115207,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "10",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 8815166421,
+      "lat": 37.7802778,
+      "lon": -122.4130009,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "4",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 8815253795,
+      "lat": 37.7818897,
+      "lon": -122.4110254,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "4",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 9225712936,
+      "lat": 37.7802637,
+      "lon": -122.4130609,
+      "tags": {
+        "access": "yes",
+        "amenity": "toilets",
+        "brand": "Mid-Market Pit Stop",
+        "brand:website": "https://sfpublicworks.org/pitstop",
+        "check_date": "2025-01-14",
+        "fee": "no",
+        "level": "0",
+        "opening_hours": "24/7",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      },
+      "name": "Unknown",
+      "type": "toilets"
+    },
+    {
+      "id": 9452420640,
+      "lat": 37.7841626,
+      "lon": -122.409785,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "127",
+        "addr:postcode": "94102",
+        "addr:state": "CA",
+        "addr:street": "Eddy Street",
+        "amenity": "restaurant",
+        "name": "New York Pizza Kitchen",
+        "opening_hours": "Mo-Th 14:00-01:00, Fr-Su 14:00-12:00",
+        "payment:cash": "yes",
+        "payment:discover_card": "yes",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "phone": "+1-415-409-1212",
+        "website": "https://www.nypizza-sf.com/"
+      },
+      "name": "New York Pizza Kitchen",
+      "type": "restaurant"
+    },
+    {
+      "id": 9583974523,
+      "lat": 37.7794363,
+      "lon": -122.4104209,
+      "tags": {
+        "addr:housenumber": "1085",
+        "addr:street": "Mission Street",
+        "amenity": "restaurant",
+        "name": "Birdsong",
+        "opening_hours": "Tu-Sa 17:00-21:00",
+        "phone": "+1-415-369-9161",
+        "website": "https://www.richtablesf.com/outdoor-dining/"
+      },
+      "name": "Birdsong",
+      "type": "restaurant"
+    },
+    {
+      "id": 9589058958,
+      "lat": 37.7816247,
+      "lon": -122.4167149,
+      "tags": {
+        "addr:housenumber": "370",
+        "addr:street": "Golden Gate Avenue",
+        "amenity": "restaurant",
+        "check_date": "2025-07-18",
+        "cuisine": "mexican",
+        "name": "Taqueria El Castillo",
+        "opening_hours": "Mo-Sa 08:00-20:00; Su off"
+      },
+      "name": "Taqueria El Castillo",
+      "type": "restaurant"
+    },
+    {
+      "id": 9589058972,
+      "lat": 37.7815953,
+      "lon": -122.4170675,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "390",
+        "addr:state": "CA",
+        "addr:street": "Golden Gate Avenue",
+        "amenity": "cafe",
+        "brand": "Philz Coffee",
+        "brand:wikidata": "Q18156812",
+        "check_date": "2021-08-11",
+        "cuisine": "coffee_shop",
+        "name": "Philz Coffee",
+        "opening_hours": "Mo-Su 06:00-17:00",
+        "takeaway": "yes"
+      },
+      "name": "Philz Coffee",
+      "type": "cafe"
+    },
+    {
+      "id": 9589058973,
+      "lat": 37.7814285,
+      "lon": -122.4169311,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "4",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 9589058980,
+      "lat": 37.7813468,
+      "lon": -122.4169904,
+      "tags": {
+        "amenity": "cafe",
+        "brand": "Philz Coffee",
+        "brand:wikidata": "Q18156812",
+        "check_date": "2025-07-18",
+        "cuisine": "coffee_shop",
+        "indoor_seating": "yes",
+        "name": "Philz Coffee",
+        "opening_hours": "Mo-Fr 06:30-18:00; Sa,Su 07:00-18:00",
+        "outdoor_seating": "no",
+        "takeaway": "yes",
+        "wheelchair": "yes"
+      },
+      "name": "Philz Coffee",
+      "type": "cafe"
+    },
+    {
+      "id": 9596443258,
+      "lat": 37.7787681,
+      "lon": -122.4170192,
+      "tags": {
+        "access": "yes",
+        "amenity": "toilets",
+        "check_date": "2022-10-05",
+        "name": "Civic Center Pit Stop",
+        "opening_hours": "Mo-Su 07:00-19:00",
+        "operator": "San Francisco Public Works",
+        "operator:wikidata": "Q7413995",
+        "unisex": "yes",
+        "url": "https://sfpublicworks.wixsite.com/pitstop",
+        "website": "https://www.sfpublicworks.org/pitstop"
+      },
+      "name": "Civic Center Pit Stop",
+      "type": "toilets"
+    },
+    {
+      "id": 9603782969,
+      "lat": 37.7810848,
+      "lon": -122.408354,
+      "tags": {
+        "alt_name": "Money Loaned",
+        "amenity": "restaurant",
+        "cocktails": "yes",
+        "contact:facebook": "thepawnshopsf",
+        "contact:instagram": "thepawnshopsf",
+        "cuisine": "spanish;tapas",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "yes",
+        "drink:beer": "yes",
+        "drink:wine": "yes",
+        "email": "damien@thepawnshopsf.com",
+        "name": "The Pawn Shop",
+        "opening_hours": "We-Sa 17:00-22:00",
+        "opening_hours:url": "https://thepawnshopsf.com/",
+        "phone": "+1 415 8748041",
+        "reservation": "yes",
+        "website": "https://thepawnshopsf.com/",
+        "website:menu": "https://thepawnshopsf.com/#menu-section"
+      },
+      "name": "The Pawn Shop",
+      "type": "restaurant"
+    },
+    {
+      "id": 9603782970,
+      "lat": 37.7810175,
+      "lon": -122.4085354,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "2",
+        "check_date": "2021-08-11",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 9644266129,
+      "lat": 37.7793779,
+      "lon": -122.4132098,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "1145",
+        "addr:postcode": "94103",
+        "addr:state": "CA",
+        "addr:street": "Market Street",
+        "amenity": "restaurant",
+        "name": "La Cuisine Cafe",
+        "phone": "+1 415-757-0133",
+        "website": "https://lacuisinecafesf.com/"
+      },
+      "name": "La Cuisine Cafe",
+      "type": "restaurant"
+    },
+    {
+      "id": 9647295026,
+      "lat": 37.7783946,
+      "lon": -122.4155015,
+      "tags": {
+        "addr:housenumber": "1230",
+        "addr:street": "Market Street",
+        "amenity": "pub",
+        "check_date": "2024-10-29",
+        "cuisine": "american",
+        "food": "yes",
+        "name": "Fermentation Lab",
+        "wheelchair": "yes"
+      },
+      "name": "Fermentation Lab",
+      "type": "pub"
+    },
+    {
+      "id": 9649588760,
+      "lat": 37.7817814,
+      "lon": -122.4159544,
+      "tags": {
+        "amenity": "restaurant",
+        "check_date": "2023-01-03",
+        "contact:instagram": "kaymaeatery",
+        "contact:twitter": "KAYMAeatery",
+        "cuisine": "algerian;african",
+        "email": "mykayma@gmail.com",
+        "indoor": "yes",
+        "name": "Kayma",
+        "website:menu": "https://lacocinamarketplace.menu/kayma/",
+        "wheelchair": "yes"
+      },
+      "name": "Kayma",
+      "type": "restaurant"
+    },
+    {
+      "id": 9649588761,
+      "lat": 37.7818115,
+      "lon": -122.415961,
+      "tags": {
+        "amenity": "restaurant",
+        "check_date": "2023-01-03",
+        "contact:instagram": "mimorenasf",
+        "contact:twitter": "MiMorenaSF",
+        "cuisine": "mexican",
+        "email": "mimorenasf@gmail.com",
+        "indoor": "yes",
+        "name": "Mi Morena",
+        "website:menu": "https://lacocinamarketplace.menu/mimorena/",
+        "wheelchair": "yes"
+      },
+      "name": "Mi Morena",
+      "type": "restaurant"
+    },
+    {
+      "id": 9649588762,
+      "lat": 37.7818513,
+      "lon": -122.4159698,
+      "tags": {
+        "amenity": "restaurant",
+        "check_date": "2023-01-03",
+        "contact:instagram": "estrellitas.snacks",
+        "contact:twitter": "estrellitasnack",
+        "cuisine": "salvadoran",
+        "email": "catering@estrellitassnackssf.com",
+        "indoor": "yes",
+        "name": "Estrellita's Snacks",
+        "website:menu": "https://lacocinamarketplace.menu/estrellitasnacks/",
+        "wheelchair": "yes"
+      },
+      "name": "Estrellita's Snacks",
+      "type": "restaurant"
+    },
+    {
+      "id": 9649588763,
+      "lat": 37.7818359,
+      "lon": -122.4158894,
+      "tags": {
+        "amenity": "restaurant",
+        "check_date": "2023-01-03",
+        "contact:instagram": "bougcali",
+        "contact:twitter": "bougcali",
+        "cuisine": "creole",
+        "email": "bougcalifornia@gmail.com",
+        "indoor": "yes",
+        "name": "Boug Cali",
+        "website:menu": "https://lacocinamarketplace.menu/bougcali/",
+        "wheelchair": "yes"
+      },
+      "name": "Boug Cali",
+      "type": "restaurant"
+    },
+    {
+      "id": 9649588764,
+      "lat": 37.7818142,
+      "lon": -122.4158364,
+      "tags": {
+        "amenity": "restaurant",
+        "check_date": "2023-01-03",
+        "contact:facebook": "LosCilantrosSF",
+        "contact:instagram": "loscilantros",
+        "contact:twitter": "LosCilantros",
+        "cuisine": "mexican",
+        "email": "dilsalugo@loscilantrossf.com",
+        "indoor": "yes",
+        "name": "Los Cilantros",
+        "website": "http://loscilantrossf.com/",
+        "wheelchair": "yes"
+      },
+      "name": "Los Cilantros",
+      "type": "restaurant"
+    },
+    {
+      "id": 9649588765,
+      "lat": 37.7817533,
+      "lon": -122.4160101,
+      "tags": {
+        "amenity": "cafe",
+        "check_date": "2023-01-03",
+        "contact:facebook": "fluidcoopsf",
+        "contact:instagram": "wearefluidsf",
+        "cuisine": "coffee_shop",
+        "drink:beer": "yes",
+        "drink:wine": "yes",
+        "email": "info@fluidcoopsf.com",
+        "indoor": "yes",
+        "name": "Fluid Cooperative Cafe",
+        "opening_hours": "Mo-Fr 8:00-14:30",
+        "website": "https://www.fluidcoopsf.com/",
+        "website:menu": "https://www.fluidcoopsf.com/menu",
+        "wheelchair": "yes"
+      },
+      "name": "Fluid Cooperative Cafe",
+      "type": "cafe"
+    },
+    {
+      "id": 9649588766,
+      "lat": 37.781793,
+      "lon": -122.415884,
+      "tags": {
+        "amenity": "restaurant",
+        "check_date": "2023-01-03",
+        "contact:facebook": "terangalife",
+        "contact:instagram": "terangalife",
+        "contact:twitter": "terangalife",
+        "cuisine": "african;senegalese",
+        "email": "info@terangalife.com",
+        "indoor": "yes",
+        "name": "Teranga",
+        "phone": "+1 415 8798372",
+        "website": "http://www.terangajuice.com/",
+        "website:menu": "https://lacocinamarketplace.menu/teranga/",
+        "wheelchair": "yes"
+      },
+      "name": "Teranga",
+      "type": "restaurant"
+    },
+    {
+      "id": 9705829197,
+      "lat": 37.7831012,
+      "lon": -122.4174209,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "2",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 9721165699,
+      "lat": 37.781604,
+      "lon": -122.4169468,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "380",
+        "addr:state": "CA",
+        "addr:street": "Golden Gate Avenue",
+        "amenity": "restaurant",
+        "contact:facebook": "burkeandblack",
+        "contact:instagram": "burkeandblack",
+        "craft": "caterer",
+        "name": "Burke & Black",
+        "opening_hours": "Tu-Fr 11:00-17:00; Sa 11:00-15:00; Su,Mo off",
+        "opening_hours:url": "https://www.burkeandblack.com/location/burke-black/",
+        "website": "https://www.burkeandblack.com/",
+        "website:menu": "https://www.burkeandblack.com/menus"
+      },
+      "name": "Burke & Black",
+      "type": "restaurant"
+    },
+    {
+      "id": 9735505751,
+      "lat": 37.7834065,
+      "lon": -122.4177038,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "601",
+        "addr:state": "CA",
+        "addr:street": "Larkin Street",
+        "alt_name": "Lapats Thai Noodles Bar",
+        "amenity": "restaurant",
+        "cuisine": "thai",
+        "description": "Thai noodle bar",
+        "name": "Lapats"
+      },
+      "name": "Lapats",
+      "type": "restaurant"
+    },
+    {
+      "id": 9735505752,
+      "lat": 37.7834857,
+      "lon": -122.4177166,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "607",
+        "addr:state": "CA",
+        "addr:street": "Larkin Street",
+        "amenity": "restaurant",
+        "cuisine": "vietnamese;chinese;pho",
+        "indoor_seating": "yes",
+        "name": "Larkin Restaurant",
+        "outdoor_seating": "no",
+        "phone": "+1 415 4004463",
+        "wheelchair": "yes"
+      },
+      "name": "Larkin Restaurant",
+      "type": "restaurant"
+    },
+    {
+      "id": 9735505763,
+      "lat": 37.7834523,
+      "lon": -122.4176583,
+      "tags": {
+        "artwork_type": "statue",
+        "name": "Little Saigon: 2 lions",
+        "note": "One of two statues as a gate for Little Saigon",
+        "tourism": "artwork"
+      },
+      "name": "Little Saigon: 2 lions",
+      "type": "artwork"
+    },
+    {
+      "id": 9735505764,
+      "lat": 37.7834717,
+      "lon": -122.4175107,
+      "tags": {
+        "artwork_type": "statue",
+        "name": "Little Saigon: 2 lions",
+        "tourism": "artwork"
+      },
+      "name": "Little Saigon: 2 lions",
+      "type": "artwork"
+    },
+    {
+      "id": 9735505781,
+      "lat": 37.784526,
+      "lon": -122.4179285,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "721",
+        "addr:postcode": "94109",
+        "addr:state": "CA",
+        "addr:street": "Larkin Street",
+        "amenity": "cafe",
+        "check_date": "2023-01-08",
+        "contact:instagram": "sweetglorysf",
+        "cuisine": "dessert",
+        "description": "Dessert cafe",
+        "email": "sweetglorysf@hotmail.com",
+        "name": "Sweet Glory",
+        "opening_hours": "Mo,We-Su 10:30-18:00; Tu off",
+        "opening_hours:url": "https://www.sweetglorysf.com/",
+        "outdoor_seating": "no",
+        "phone": "+1 415 7430724",
+        "website": "https://www.sweetglorysf.com/",
+        "wheelchair": "yes"
+      },
+      "name": "Sweet Glory",
+      "type": "cafe"
+    },
+    {
+      "id": 9735505803,
+      "lat": 37.7844434,
+      "lon": -122.4179158,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "709",
+        "addr:postcode": "94109",
+        "addr:state": "CA",
+        "addr:street": "Larkin Street",
+        "amenity": "cafe",
+        "branch": "SF Tenderloin",
+        "brand": "Quickly",
+        "brand:en": "Quickly",
+        "brand:wikidata": "Q3771463",
+        "brand:zh": "\u5feb\u53ef\u7acb",
+        "cuisine": "bubble_tea",
+        "level": "0",
+        "name": "Quickly",
+        "name:en": "Quickly",
+        "name:zh": "\u5feb\u53ef\u7acb",
+        "note": "Alleged front",
+        "opening_hours": "11:00-19:00",
+        "outdoor_seating": "no",
+        "phone": "+1 415 666 6478",
+        "start_date": "2009-04-18",
+        "takeaway": "yes",
+        "url": "https://www.sfchronicle.com/crime/article/S-F-boba-shop-was-a-front-for-an-international-17162814.php",
+        "website": "http://quicklyusa.com/sftenderloin.html",
+        "website:menu": "https://places.singleplatform.com/quickly-17/menu"
+      },
+      "name": "Quickly",
+      "type": "cafe"
+    },
+    {
+      "id": 9735505804,
+      "lat": 37.7840703,
+      "lon": -122.41762,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "2",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 9738142757,
+      "lat": 37.7789539,
+      "lon": -122.4102772,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "2",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 9738142758,
+      "lat": 37.7789393,
+      "lon": -122.4102953,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "2",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 9956258781,
+      "lat": 37.7837099,
+      "lon": -122.4192267,
+      "tags": {
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "colour": "blue"
+      },
+      "name": "Unknown",
+      "type": "drinking_water"
+    },
+    {
+      "id": 9956258782,
+      "lat": 37.783924,
+      "lon": -122.4192636,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "8",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 9965260881,
+      "lat": 37.782887,
+      "lon": -122.4125475,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "201",
+        "addr:state": "CA",
+        "addr:street": "Turk Street",
+        "amenity": "restaurant",
+        "cuisine": "pizza;sandwich",
+        "diet:halal": "yes",
+        "name": "Halal Spot"
+      },
+      "name": "Halal Spot",
+      "type": "restaurant"
+    },
+    {
+      "id": 9994029635,
+      "lat": 37.7832537,
+      "lon": -122.415712,
+      "tags": {
+        "addr:housenumber": "248",
+        "addr:street": "Hyde Street",
+        "amenity": "restaurant",
+        "check_date": "2023-02-02",
+        "cuisine": "vietnamese",
+        "description": "Vietnamese comfort food. Has vegan options.",
+        "name": "M\u1ed9ng Thu",
+        "opening_hours": "Mo off; Tu-Su 07:00-16:00",
+        "payment:cards": "no",
+        "payment:credit_cards": "no",
+        "payment:debit_cards": "no",
+        "phone": "+1 415-928-6724"
+      },
+      "name": "M\u1ed9ng Thu",
+      "type": "restaurant"
+    },
+    {
+      "id": 9995643238,
+      "lat": 37.7813816,
+      "lon": -122.416727,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "395",
+        "addr:postcode": "94102",
+        "addr:state": "CA",
+        "addr:street": "Golden Gate Avenue",
+        "amenity": "restaurant",
+        "check_date": "2025-07-18",
+        "description": "Vegan cuisine",
+        "diet:vegan": "only",
+        "name": "Golden Era Vegan Restaurant",
+        "opening_hours": "11:00-19:30",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "phone": "+1-415-487-8687",
+        "website": "https://www.goldeneravegan.com/",
+        "wheelchair": "yes"
+      },
+      "name": "Golden Era Vegan Restaurant",
+      "type": "restaurant"
+    },
+    {
+      "id": 10007662660,
+      "lat": 37.7824205,
+      "lon": -122.4189193,
+      "tags": {
+        "addr:housenumber": "614",
+        "addr:street": "Polk Street",
+        "amenity": "cafe",
+        "name": "Unexpected Era Cafe"
+      },
+      "name": "Unexpected Era Cafe",
+      "type": "cafe"
+    },
+    {
+      "id": 10007800155,
+      "lat": 37.7819684,
+      "lon": -122.4171513,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "434",
+        "addr:state": "CA",
+        "addr:street": "Larkin Street",
+        "amenity": "restaurant",
+        "name": "Golden Kim Tar Restaurant",
+        "name:zh": "\u65b0\u91d1\u5854\u9928",
+        "phone": "+1 415 3468889"
+      },
+      "name": "Golden Kim Tar Restaurant",
+      "type": "restaurant"
+    },
+    {
+      "id": 10007858866,
+      "lat": 37.7831447,
+      "lon": -122.4179732,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "601",
+        "addr:state": "CA",
+        "addr:street": "Eddy Street",
+        "alt_name": "Chambers Eat + Drink",
+        "amenity": "restaurant",
+        "contact:facebook": "chamberssf",
+        "contact:instagram": "chambers_sf",
+        "contact:yelp": "https://www.yelp.com/biz/chambers-san-francisco-3",
+        "drink:wine": "yes",
+        "email": "info@chambers-sf.com",
+        "name": "Chambers",
+        "opening_hours": "Th-Fr 17:00-22:00; Sa 11:00-15:00,17:00-25:00; Su 11:00-15:00",
+        "opening_hours:url": "https://www.chambers-sf.com/",
+        "phone": "+1 415 4965178",
+        "reservation": "yes",
+        "website": "https://www.chambers-sf.com/",
+        "website:calendar": "https://www.chambers-sf.com/shows",
+        "website:menu": "https://www.chambers-sf.com/menu-1"
+      },
+      "name": "Chambers",
+      "type": "restaurant"
+    },
+    {
+      "id": 10008162926,
+      "lat": 37.7820856,
+      "lon": -122.4171755,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "448",
+        "addr:state": "CA",
+        "addr:street": "Larkin Street",
+        "amenity": "restaurant",
+        "check_date": "2023-05-18",
+        "cuisine": "indian",
+        "name": "Spice of India",
+        "phone": "+1 415-658-7720",
+        "website": "http://www.spiceofindia.com"
+      },
+      "name": "Spice of India",
+      "type": "restaurant"
+    },
+    {
+      "id": 10012042767,
+      "lat": 37.7834412,
+      "lon": -122.4191305,
+      "tags": {
+        "addr:housenumber": "710",
+        "addr:street": "Polk Street",
+        "amenity": "restaurant",
+        "diet:vegetarian": "only",
+        "name": "Thai Idea",
+        "outdoor_seating": "no"
+      },
+      "name": "Thai Idea",
+      "type": "restaurant"
+    },
+    {
+      "id": 10012048156,
+      "lat": 37.7833726,
+      "lon": -122.4191125,
+      "tags": {
+        "addr:housenumber": "708",
+        "addr:street": "Polk Street",
+        "amenity": "bar",
+        "check_date": "2023-06-24",
+        "food": "yes",
+        "name": "Secret Bar & Lounge",
+        "outdoor_seating": "no",
+        "wheelchair": "yes"
+      },
+      "name": "Secret Bar & Lounge",
+      "type": "bar"
+    },
+    {
+      "id": 10017312427,
+      "lat": 37.7833176,
+      "lon": -122.4073719,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "2",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 10017312428,
+      "lat": 37.7832967,
+      "lon": -122.407349,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "2",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 10017312429,
+      "lat": 37.7829574,
+      "lon": -122.4069191,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "2",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 10017312430,
+      "lat": 37.783019,
+      "lon": -122.4069938,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "2",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 10017312441,
+      "lat": 37.7831657,
+      "lon": -122.4068969,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "2",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 10017317256,
+      "lat": 37.7820245,
+      "lon": -122.4101831,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "4",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 10023428673,
+      "lat": 37.784952,
+      "lon": -122.4130574,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "406",
+        "addr:state": "CA",
+        "addr:street": "Ellis Street",
+        "amenity": "cafe",
+        "name": "Cafecito",
+        "outdoor_seating": "no"
+      },
+      "name": "Cafecito",
+      "type": "cafe"
+    },
+    {
+      "id": 10028262802,
+      "lat": 37.7820379,
+      "lon": -122.4103735,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "2",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 10028262809,
+      "lat": 37.7818931,
+      "lon": -122.4100121,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "4",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 10059343291,
+      "lat": 37.7839542,
+      "lon": -122.4190474,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "thai",
+        "name": "Zen Yai"
+      },
+      "name": "Zen Yai",
+      "type": "restaurant"
+    },
+    {
+      "id": 10080967975,
+      "lat": 37.7844469,
+      "lon": -122.4074118,
+      "tags": {
+        "access": "permit",
+        "amenity": "toilets",
+        "description": "Powell Street BART restroom",
+        "fee": "no",
+        "layer": "-1",
+        "level": "-1",
+        "note:access": "In the paid area of BART",
+        "url": "https://bartable.bart.gov/featured/restrooms-powell-street-station-have-reopened"
+      },
+      "name": "Unknown",
+      "type": "toilets"
+    },
+    {
+      "id": 10241519028,
+      "lat": 37.7815704,
+      "lon": -122.4100938,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "510",
+        "addr:postcode": "94103",
+        "addr:state": "CA",
+        "addr:street": "Stevenson Street",
+        "amenity": "restaurant",
+        "check_date": "2022-09-17",
+        "contact:facebook": "montesacrosf",
+        "contact:instagram": "montesacrosf",
+        "cuisine": "italian",
+        "drink:wine": "yes",
+        "email": "soma@montesacro.com",
+        "name": "Montesacro",
+        "opening_hours": "Su,Mo-Th 11:30-14:30,16:30-22:00; Fr,Sa 11:30-14:30,16:30-22:30",
+        "opening_hours:url": "https://montesacro.com/about-us-soma-sf",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+1 415 795 3040",
+        "reservation": "yes",
+        "website": "https://montesacro.com/sanfrancisco",
+        "website:menu": "https://montesacro.com/menu-soma-sf"
+      },
+      "name": "Montesacro",
+      "type": "restaurant"
+    },
+    {
+      "id": 10261584500,
+      "lat": 37.782918,
+      "lon": -122.4098359,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "970",
+        "addr:state": "CA",
+        "addr:street": "Market Street",
+        "amenity": "restaurant",
+        "name": "Tenderheart"
+      },
+      "name": "Tenderheart",
+      "type": "restaurant"
+    },
+    {
+      "id": 10572259311,
+      "lat": 37.7784378,
+      "lon": -122.415442,
+      "tags": {
+        "amenity": "restaurant",
+        "check_date": "2025-11-22",
+        "cuisine": "american",
+        "level": "0",
+        "name": "Sam's American Eatery",
+        "opening_hours": "16:00-21:00",
+        "website": "https://samssf.com",
+        "wheelchair": "yes"
+      },
+      "name": "Sam's American Eatery",
+      "type": "restaurant"
+    },
+    {
+      "id": 10693862613,
+      "lat": 37.7783588,
+      "lon": -122.414048,
+      "tags": {
+        "artist:wikidata": "Q7325184",
+        "artist_name": "Richard Deutsch",
+        "artwork_type": "sculpture",
+        "level": "0",
+        "material": "steel;marble",
+        "name": "Victoria",
+        "start_date": "2021",
+        "tourism": "artwork",
+        "url": "https://ccartadvisors.com/yvonnes-way-at-trinity-place"
+      },
+      "name": "Victoria",
+      "type": "artwork"
+    },
+    {
+      "id": 10693862618,
+      "lat": 37.7784736,
+      "lon": -122.4139911,
+      "tags": {
+        "information": "guidepost",
+        "tourism": "information"
+      },
+      "name": "Unknown",
+      "type": "information"
+    },
+    {
+      "id": 10859130862,
+      "lat": 37.7825929,
+      "lon": -122.4059858,
+      "tags": {
+        "access": "yes",
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "lockers",
+        "capacity": "8",
+        "covered": "yes",
+        "fee": "yes",
+        "indoor": "no",
+        "level": "0",
+        "lit": "yes",
+        "operator": "BikeLink"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 10859130868,
+      "lat": 37.7829789,
+      "lon": -122.4060074,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "4",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 10859130869,
+      "lat": 37.7830452,
+      "lon": -122.4059478,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "4",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 10951827676,
+      "lat": 37.7799086,
+      "lon": -122.4174185,
+      "tags": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "no",
+        "fee": "no",
+        "fountain": "bubbler",
+        "max_age": "18",
+        "wheelchair": "yes"
+      },
+      "name": "Unknown",
+      "type": "drinking_water"
+    },
+    {
+      "id": 11028937311,
+      "lat": 37.7810606,
+      "lon": -122.4135793,
+      "tags": {
+        "addr:housenumber": "96",
+        "addr:street": "McAllister Street",
+        "amenity": "restaurant",
+        "check_date": "2023-07-05",
+        "cuisine": "thai",
+        "name": "Thai Curry",
+        "phone": "+1 415-874-9929",
+        "website": "https://www.thaicurrysf.com/"
+      },
+      "name": "Thai Curry",
+      "type": "restaurant"
+    },
+    {
+      "id": 11100770512,
+      "lat": 37.7809508,
+      "lon": -122.4158352,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "200",
+        "addr:postcode": "94102",
+        "addr:state": "CA",
+        "addr:street": "McAllister Street",
+        "amenity": "restaurant",
+        "check_date": "2025-11-19",
+        "name": "The Law Caf\u00e9",
+        "phone": "+1-415-565-4693",
+        "website": "http://law-cafe.square.site/"
+      },
+      "name": "The Law Caf\u00e9",
+      "type": "restaurant"
+    },
+    {
+      "id": 11198865805,
+      "lat": 37.7783615,
+      "lon": -122.4184964,
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "2",
+        "covered": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 11232217086,
+      "lat": 37.7826643,
+      "lon": -122.4172601,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "510",
+        "addr:postcode": "94102",
+        "addr:state": "CA",
+        "addr:street": "Larkin Street",
+        "amenity": "bar",
+        "name": "Emperor Norton's Boozeland"
+      },
+      "name": "Emperor Norton's Boozeland",
+      "type": "bar"
+    },
+    {
+      "id": 11401506169,
+      "lat": 37.7800668,
+      "lon": -122.4160528,
+      "tags": {
+        "amenity": "cafe",
+        "check_date": "2025-11-19",
+        "name": "Asian Art Museum Cafe"
+      },
+      "name": "Asian Art Museum Cafe",
+      "type": "cafe"
+    },
+    {
+      "id": 11670188815,
+      "lat": 37.7797607,
+      "lon": -122.4146513,
+      "tags": {
+        "access": "private",
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "covered": "no",
+        "fee": "no",
+        "indoor": "no",
+        "lit": "yes"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 11670188819,
+      "lat": 37.7799246,
+      "lon": -122.4134196,
+      "tags": {
+        "access": "yes",
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "8",
+        "covered": "no",
+        "fee": "no",
+        "indoor": "no"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 11699762312,
+      "lat": 37.7838697,
+      "lon": -122.4123002,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Z Zoul Cafe"
+      },
+      "name": "Z Zoul Cafe",
+      "type": "restaurant"
+    },
+    {
+      "id": 11699777854,
+      "lat": 37.7830303,
+      "lon": -122.4113803,
+      "tags": {
+        "amenity": "bar",
+        "name": "Aunt Charlies Lounge"
+      },
+      "name": "Aunt Charlies Lounge",
+      "type": "bar"
+    },
+    {
+      "id": 11699784771,
+      "lat": 37.7829429,
+      "lon": -122.4138893,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Casa Mayah"
+      },
+      "name": "Casa Mayah",
+      "type": "restaurant"
+    },
+    {
+      "id": 11752501602,
+      "lat": 37.780939,
+      "lon": -122.4189945,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "525",
+        "addr:postcode": "94102",
+        "addr:state": "CA",
+        "addr:street": "Golden Gate Avenue",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "name": "SPRO",
+        "opening_hours": "Mo-Fr 07:00-17:00",
+        "outdoor_seating": "no",
+        "phone": "+1-415-844-0650",
+        "website": "https://www.sprocoffeelab.com/"
+      },
+      "name": "SPRO",
+      "type": "cafe"
+    },
+    {
+      "id": 11817396089,
+      "lat": 37.7804086,
+      "lon": -122.4082571,
+      "tags": {
+        "amenity": "restaurant",
+        "check_date": "2024-04-14",
+        "cuisine": "pizza",
+        "name": "Pizza Pagaia"
+      },
+      "name": "Pizza Pagaia",
+      "type": "restaurant"
+    },
+    {
+      "id": 11948529354,
+      "lat": 37.7816145,
+      "lon": -122.4067304,
+      "tags": {
+        "board:title": "The Parks at 5M",
+        "board_type": "rules",
+        "information": "board",
+        "tourism": "information"
+      },
+      "name": "Unknown",
+      "type": "information"
+    },
+    {
+      "id": 12133091149,
+      "lat": 37.7827313,
+      "lon": -122.4092532,
+      "tags": {
+        "addr:floor": "2",
+        "amenity": "bar",
+        "check_date": "2024-08-23",
+        "level": "1",
+        "name": "Punsch Bar"
+      },
+      "name": "Punsch Bar",
+      "type": "bar"
+    },
+    {
+      "id": 12691990792,
+      "lat": 37.7838877,
+      "lon": -122.4078144,
+      "tags": {
+        "amenity": "bicycle_parking"
+      },
+      "name": "Unknown",
+      "type": "bicycle_parking"
+    },
+    {
+      "id": 12951004302,
+      "lat": 37.780965,
+      "lon": -122.4105181,
+      "tags": {
+        "addr:housenumber": "537",
+        "addr:street": "Stevenson Street",
+        "amenity": "bar",
+        "name": "Indie Darling",
+        "website": "https://www.indiedarlingsf.com/"
+      },
+      "name": "Indie Darling",
+      "type": "bar"
+    },
+    {
+      "id": 13027417998,
+      "lat": 37.782573,
+      "lon": -122.4090446,
+      "tags": {
+        "amenity": "bar",
+        "check_date": "2025-07-26",
+        "level": "0",
+        "name": "Lagom Bar"
+      },
+      "name": "Lagom Bar",
+      "type": "bar"
+    },
+    {
+      "id": 13055672442,
+      "lat": 37.7830111,
+      "lon": -122.4063666,
+      "tags": {
+        "access": "yes",
+        "addr:city": "San Francisco",
+        "addr:housenumber": "890",
+        "addr:state": "CA",
+        "addr:street": "Mission Street",
+        "amenity": "parking",
+        "fee": "yes",
+        "name": "Pickwick Garage",
+        "opening_hours": "24/7",
+        "operator": "North Beach Parking Services Inc.",
+        "supervised": "yes"
+      },
+      "name": "Pickwick Garage",
+      "type": "parking"
+    },
+    {
+      "id": 13111164183,
+      "lat": 37.7793606,
+      "lon": -122.4158357,
+      "tags": {
+        "access": "yes",
+        "amenity": "toilets",
+        "check_date": "2025-08-31",
+        "fee": "no",
+        "female": "yes",
+        "gender_segregated": "yes",
+        "level": "-1",
+        "level:ref": "1",
+        "male": "no",
+        "portable": "yes",
+        "toilets:disposal": "flush",
+        "toilets:handwashing": "no"
+      },
+      "name": "Unknown",
+      "type": "toilets"
+    },
+    {
+      "id": 13111164184,
+      "lat": 37.7793509,
+      "lon": -122.4158914,
+      "tags": {
+        "access": "yes",
+        "amenity": "toilets",
+        "check_date": "2025-08-31",
+        "fee": "no",
+        "female": "no",
+        "gender_segregated": "yes",
+        "level": "-1",
+        "level:ref": "1",
+        "male": "yes",
+        "portable": "no",
+        "toilets:disposal": "flush",
+        "toilets:handwashing": "yes",
+        "wheelchair": "yes"
+      },
+      "name": "Unknown",
+      "type": "toilets"
+    },
+    {
+      "id": 13111164185,
+      "lat": 37.7793602,
+      "lon": -122.4158942,
+      "tags": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "covered": "yes",
+        "fee": "no",
+        "indoor": "yes",
+        "level": "-1",
+        "level:ref": "1",
+        "lit": "yes"
+      },
+      "name": "Unknown",
+      "type": "drinking_water"
+    },
+    {
+      "id": 13111181567,
+      "lat": 37.7793606,
+      "lon": -122.4158357,
+      "tags": {
+        "access": "yes",
+        "amenity": "toilets",
+        "check_date": "2025-08-31",
+        "fee": "no",
+        "female": "yes",
+        "gender_segregated": "yes",
+        "level": "-1",
+        "level:ref": "1",
+        "male": "no",
+        "portable": "yes",
+        "toilets:disposal": "flush",
+        "toilets:handwashing": "no"
+      },
+      "name": "Unknown",
+      "type": "toilets"
+    },
+    {
+      "id": 13111181568,
+      "lat": 37.7793509,
+      "lon": -122.4158914,
+      "tags": {
+        "access": "yes",
+        "amenity": "toilets",
+        "check_date": "2025-08-31",
+        "fee": "no",
+        "female": "no",
+        "gender_segregated": "yes",
+        "level": "-1",
+        "level:ref": "1",
+        "male": "yes",
+        "portable": "no",
+        "toilets:disposal": "flush",
+        "toilets:handwashing": "yes",
+        "wheelchair": "yes"
+      },
+      "name": "Unknown",
+      "type": "toilets"
+    },
+    {
+      "id": 13111181569,
+      "lat": 37.7793602,
+      "lon": -122.4158942,
+      "tags": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "covered": "yes",
+        "fee": "no",
+        "indoor": "yes",
+        "level": "-1",
+        "level:ref": "1",
+        "lit": "yes"
+      },
+      "name": "Unknown",
+      "type": "drinking_water"
+    },
+    {
+      "id": 13111249255,
+      "lat": 37.7790891,
+      "lon": -122.4160885,
+      "tags": {
+        "board_type": "art",
+        "direction": "N",
+        "information": "board",
+        "level:ref": "5",
+        "tourism": "information"
+      },
+      "name": "Unknown",
+      "type": "information"
+    },
+    {
+      "id": 13111249265,
+      "lat": 37.7791749,
+      "lon": -122.4159502,
+      "tags": {
+        "artist_name": "Larry T. Shank",
+        "artwork_type": "bust",
+        "level:ref": "5",
+        "start_date": "1998",
+        "subject:wikidata": "Q3091058",
+        "tourism": "artwork"
+      },
+      "name": "Unknown",
+      "type": "artwork"
+    },
+    {
+      "id": 13111249283,
+      "lat": 37.7790548,
+      "lon": -122.4161073,
+      "tags": {
+        "artist:wikidata": "Q523722",
+        "level:ref": "5",
+        "location": "overhead",
+        "material": "aluminium",
+        "name": "Cyclone Fragment",
+        "start_date": "1996",
+        "tourism": "artwork"
+      },
+      "name": "Cyclone Fragment",
+      "type": "artwork"
+    },
+    {
+      "id": 13128893159,
+      "lat": 37.7789243,
+      "lon": -122.4191142,
+      "tags": {
+        "artist:wikidata": "Q21810614",
+        "artwork_type": "painting",
+        "direction": "W",
+        "level:ref": "1",
+        "subject:wikidata": "Q878728",
+        "tourism": "artwork"
+      },
+      "name": "Unknown",
+      "type": "artwork"
+    },
+    {
+      "id": 13128893161,
+      "lat": 37.7794248,
+      "lon": -122.4187549,
+      "tags": {
+        "artwork_type": "bust",
+        "direction": "S",
+        "historic": "memorial",
+        "level:ref": "1",
+        "memorial": "bust",
+        "subject:wikidata": "Q878728",
+        "tourism": "artwork"
+      },
+      "name": "Unknown",
+      "type": "artwork"
+    },
+    {
+      "id": 13128893162,
+      "lat": 37.7791576,
+      "lon": -122.4197266,
+      "tags": {
+        "artwork_type": "bust",
+        "level:ref": "1",
+        "memorial": "bust",
+        "tourism": "artwork"
+      },
+      "name": "Unknown",
+      "type": "artwork"
+    },
+    {
+      "id": 13128893166,
+      "lat": 37.7792549,
+      "lon": -122.4188984,
+      "tags": {
+        "artwork_type": "bust",
+        "historic": "memorial",
+        "level:ref": "2",
+        "memorial": "bust",
+        "subject:wikidata": "Q461391",
+        "tourism": "artwork"
+      },
+      "name": "Unknown",
+      "type": "artwork"
+    },
+    {
+      "id": 13128893168,
+      "lat": 37.7791825,
+      "lon": -122.4195878,
+      "tags": {
+        "artist:wikidata": "Q23302882",
+        "artwork_type": "bust",
+        "flickr": "https://www.flickr.com/photos/wallyg/6799440886/",
+        "historic": "memorial",
+        "level:ref": "1",
+        "memorial": "bust",
+        "subject:wikidata": "Q4762896",
+        "tourism": "artwork"
+      },
+      "name": "Unknown",
+      "type": "artwork"
+    },
+    {
+      "id": 13128893171,
+      "lat": 37.779226,
+      "lon": -122.4188438,
+      "tags": {
+        "artwork_type": "bust",
+        "direction": "N",
+        "historic": "memorial",
+        "level:ref": "1",
+        "memorial": "bust",
+        "subject:wikidata": "Q1701740",
+        "tourism": "artwork"
+      },
+      "name": "Unknown",
+      "type": "artwork"
+    },
+    {
+      "id": 13128893175,
+      "lat": 37.7792425,
+      "lon": -122.4194926,
+      "tags": {
+        "artwork_type": "bust",
+        "historic": "memorial",
+        "level:ref": "1",
+        "memorial": "bust",
+        "subject:wikidata": "Q5497814",
+        "tourism": "artwork"
+      },
+      "name": "Unknown",
+      "type": "artwork"
+    },
+    {
+      "id": 13128893176,
+      "lat": 37.7789361,
+      "lon": -122.4191443,
+      "tags": {
+        "artwork_type": "photograph",
+        "artwork_type:wikidata": "Q130483372",
+        "direction": "S",
+        "level:ref": "1",
+        "subject:wikidata": "Q5365075",
+        "tourism": "artwork"
+      },
+      "name": "Unknown",
+      "type": "artwork"
+    },
+    {
+      "id": 13128893182,
+      "lat": 37.7792477,
+      "lon": -122.4187109,
+      "tags": {
+        "artwork_type": "bust",
+        "direction": "S",
+        "historic": "memorial",
+        "level:ref": "1",
+        "memorial": "bust",
+        "subject:wikidata": "Q1680239",
+        "tourism": "artwork"
+      },
+      "name": "Unknown",
+      "type": "artwork"
+    },
+    {
+      "id": 13128893183,
+      "lat": 37.7794266,
+      "lon": -122.4188845,
+      "tags": {
+        "artwork_type": "bust",
+        "direction": "S",
+        "historic": "memorial",
+        "level:ref": "1",
+        "memorial": "bust",
+        "subject:wikidata": "Q5537899",
+        "tourism": "artwork"
+      },
+      "name": "Unknown",
+      "type": "artwork"
+    },
+    {
+      "id": 13128893184,
+      "lat": 37.7789048,
+      "lon": -122.4191733,
+      "tags": {
+        "artist:wikidata": "Q126972149",
+        "artwork_type": "painting",
+        "direction": "N",
+        "level:ref": "1",
+        "subject:wikidata": "Q5200806",
+        "tourism": "artwork"
+      },
+      "name": "Unknown",
+      "type": "artwork"
+    },
+    {
+      "id": 13128893187,
+      "lat": 37.7794833,
+      "lon": -122.4188192,
+      "tags": {
+        "addr:unit": "190",
+        "artwork_type": "bust",
+        "direction": "NW",
+        "level:ref": "1",
+        "subject": "Edmond Godchaux",
+        "tourism": "artwork"
+      },
+      "name": "Unknown",
+      "type": "artwork"
+    },
+    {
+      "id": 13128893195,
+      "lat": 37.7792325,
+      "lon": -122.4192236,
+      "tags": {
+        "board_type": "history",
+        "direction": "S",
+        "information": "board",
+        "level:ref": "1",
+        "name": "Charlotte Maillard Shultz Staircase",
+        "tourism": "information"
+      },
+      "name": "Charlotte Maillard Shultz Staircase",
+      "type": "information"
+    },
+    {
+      "id": 13128893199,
+      "lat": 37.7792656,
+      "lon": -122.4196279,
+      "tags": {
+        "artwork_type": "bust",
+        "level:ref": "2",
+        "tourism": "artwork"
+      },
+      "name": "Unknown",
+      "type": "artwork"
+    },
+    {
+      "id": 13128893200,
+      "lat": 37.7793046,
+      "lon": -122.419754,
+      "tags": {
+        "artwork_type": "bust",
+        "level:ref": "1",
+        "memorial": "bust",
+        "tourism": "artwork"
+      },
+      "name": "Unknown",
+      "type": "artwork"
+    },
+    {
+      "id": 13128930102,
+      "lat": 37.7792783,
+      "lon": -122.4187713,
+      "tags": {
+        "artwork_type": "bust",
+        "historic": "memorial",
+        "level:ref": "2",
+        "memorial": "bust",
+        "subject:wikidata": "Q705708",
+        "tourism": "artwork"
+      },
+      "name": "Unknown",
+      "type": "artwork"
+    },
+    {
+      "id": 13128930105,
+      "lat": 37.7793738,
+      "lon": -122.4187896,
+      "tags": {
+        "artwork_type": "bust",
+        "historic": "memorial",
+        "level:ref": "2",
+        "memorial": "bust",
+        "subject:wikidata": "Q230733",
+        "tourism": "artwork"
+      },
+      "name": "Unknown",
+      "type": "artwork"
+    },
+    {
+      "id": 13128930107,
+      "lat": 37.7788882,
+      "lon": -122.4190877,
+      "tags": {
+        "amenity": "drinking_water",
+        "bottle": "no",
+        "fee": "no",
+        "indoor": "yes",
+        "level:ref": "1",
+        "lit": "yes"
+      },
+      "name": "Unknown",
+      "type": "drinking_water"
+    },
+    {
+      "id": 13128930108,
+      "lat": 37.7788961,
+      "lon": -122.4190879,
+      "tags": {
+        "addr:unit": "123",
+        "amenity": "toilets",
+        "changing_table": "no",
+        "fee": "no",
+        "gender_segregated": "yes",
+        "level:ref": "1",
+        "note:access": "Passing through a City Hall checkpoint is necessary to reach this toilet.",
+        "portable": "no",
+        "toilets:disposal": "flush",
+        "toilets:handwashing": "yes",
+        "wheelchair": "yes"
+      },
+      "name": "Unknown",
+      "type": "toilets"
+    },
+    {
+      "id": 13128930109,
+      "lat": 37.7793583,
+      "lon": -122.4189177,
+      "tags": {
+        "artwork_type": "bust",
+        "historic": "memorial",
+        "level:ref": "2",
+        "memorial": "bust",
+        "subject:wikidata": "Q5365075",
+        "tourism": "artwork"
+      },
+      "name": "Unknown",
+      "type": "artwork"
+    },
+    {
+      "id": 13128930111,
+      "lat": 37.7793167,
+      "lon": -122.4196171,
+      "tags": {
+        "artist:wikidata": "Q5639082",
+        "artwork_type": "bust",
+        "historic": "memorial",
+        "level:ref": "1",
+        "memorial": "bust",
+        "subject:wikidata": "Q5345086",
+        "tourism": "artwork"
+      },
+      "name": "Unknown",
+      "type": "artwork"
+    },
+    {
+      "id": 13307601912,
+      "lat": 37.7830474,
+      "lon": -122.4086723,
+      "tags": {
+        "addr:city": "San Francisco",
+        "addr:housenumber": "945",
+        "addr:postcode": "94103-1701",
+        "addr:state": "CA",
+        "addr:street": "Market Street",
+        "addr:unit": "102",
+        "amenity": "restaurant",
+        "check_date": "2025-11-16",
+        "cuisine": "pizza",
+        "currency:XBT": "yes",
+        "name": "Cheezy's Artisan Pizza",
+        "opening_hours": "Mo-Th 11:00-20:00; Fr-Sa 11:00-21:00; Su 11:00-19:00",
+        "payment:lightning": "yes",
+        "payment:lightning:operator": "square",
+        "payment:lightning_contactless": "no",
+        "payment:onchain": "no"
+      },
+      "name": "Cheezy's Artisan Pizza",
+      "type": "restaurant"
+    }
+  ]
+}
