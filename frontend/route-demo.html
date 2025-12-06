@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route Planning Demo - BRouter + OSM</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 0.25rem;
+        }
+        
+        .container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+        
+        .sidebar {
+            width: 350px;
+            background: #f8f9fa;
+            border-right: 1px solid #dee2e6;
+            padding: 1.5rem;
+            overflow-y: auto;
+        }
+        
+        #map {
+            flex: 1;
+        }
+        
+        .control-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #495057;
+        }
+        
+        input, select, button {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            padding: 0.75rem;
+            margin-top: 0.5rem;
+            transition: transform 0.2s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .waypoint-item {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .waypoint-item input {
+            flex: 1;
+        }
+        
+        .waypoint-item button {
+            width: auto;
+            padding: 0.5rem 1rem;
+            margin: 0;
+            background: #dc3545;
+        }
+        
+        .add-waypoint {
+            background: #28a745;
+        }
+        
+        .route-info {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .route-info h3 {
+            margin-bottom: 0.75rem;
+            color: #495057;
+            font-size: 1rem;
+        }
+        
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .info-item:last-child {
+            border-bottom: none;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: #6c757d;
+        }
+        
+        .info-value {
+            color: #667eea;
+            font-weight: 600;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 1rem;
+            color: #6c757d;
+        }
+        
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+        
+        .instructions {
+            background: #e7f3ff;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: #004085;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🚴 Route Planning Demo</h1>
+        <div class="subtitle">BRouter + OpenStreetMap + KartaView Integration</div>
+    </header>
+    
+    <div class="container">
+        <div class="sidebar">
+            <div class="instructions">
+                <strong>How to use:</strong><br>
+                1. Click on the map to add waypoints<br>
+                2. Or enter coordinates manually<br>
+                3. Click "Generate Route" to see the path
+            </div>
+            
+            <div class="control-group">
+                <label>Routing Profile</label>
+                <select id="profile">
+                    <option value="trekking">Trekking</option>
+                    <option value="fastbike">Fast Bike</option>
+                    <option value="safety">Safety</option>
+                    <option value="shortest">Shortest</option>
+                    <option value="moped">Moped</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label>Waypoints</label>
+                <div id="waypoints">
+                    <div class="waypoint-item">
+                        <input type="text" placeholder="Lon, Lat (e.g., -122.408590, 37.781554)" data-waypoint="0">
+                    </div>
+                    <div class="waypoint-item">
+                        <input type="text" placeholder="Lon, Lat (e.g., -122.391590, 37.795554)" data-waypoint="1">
+                    </div>
+                </div>
+                <button class="add-waypoint" onclick="addWaypoint()">+ Add Waypoint</button>
+            </div>
+            
+            <button onclick="generateRoute()" id="generateBtn">Generate Route</button>
+            <button onclick="clearRoute()" style="background: #6c757d;">Clear Route</button>
+            
+            <div id="routeInfo"></div>
+            <div id="error"></div>
+        </div>
+        
+        <div id="map"></div>
+    </div>
+    
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <script>
+        // Initialize map centered on San Francisco
+        const map = L.map('map').setView([37.7749, -122.4194], 13);
+        
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+        
+        // Store markers and route line
+        let markers = [];
+        let routeLine = null;
+        let waypointCount = 2;
+        
+        // Click on map to add waypoint
+        map.on('click', function(e) {
+            const { lat, lng } = e.latlng;
+            
+            // Find first empty waypoint input
+            const inputs = document.querySelectorAll('[data-waypoint]');
+            for (let input of inputs) {
+                if (!input.value) {
+                    input.value = `${lng.toFixed(6)}, ${lat.toFixed(6)}`;
+                    
+                    // Add marker
+                    const marker = L.marker([lat, lng]).addTo(map);
+                    marker.bindPopup(`Waypoint ${input.dataset.waypoint}`).openPopup();
+                    markers.push(marker);
+                    break;
+                }
+            }
+        });
+        
+        function addWaypoint() {
+            const container = document.getElementById('waypoints');
+            const div = document.createElement('div');
+            div.className = 'waypoint-item';
+            div.innerHTML = `
+                <input type="text" placeholder="Lon, Lat" data-waypoint="${waypointCount}">
+                <button onclick="removeWaypoint(this)">×</button>
+            `;
+            container.appendChild(div);
+            waypointCount++;
+        }
+        
+        function removeWaypoint(btn) {
+            btn.parentElement.remove();
+        }
+        
+        function clearRoute() {
+            // Clear markers
+            markers.forEach(m => map.removeLayer(m));
+            markers = [];
+            
+            // Clear route line
+            if (routeLine) {
+                map.removeLayer(routeLine);
+                routeLine = null;
+            }
+            
+            // Clear inputs
+            document.querySelectorAll('[data-waypoint]').forEach(input => {
+                input.value = '';
+            });
+            
+            // Clear info
+            document.getElementById('routeInfo').innerHTML = '';
+            document.getElementById('error').innerHTML = '';
+        }
+        
+        async function generateRoute() {
+            const btn = document.getElementById('generateBtn');
+            const errorDiv = document.getElementById('error');
+            const infoDiv = document.getElementById('routeInfo');
+            
+            errorDiv.innerHTML = '';
+            infoDiv.innerHTML = '<div class="loading">Generating route...</div>';
+            btn.disabled = true;
+            
+            try {
+                // Collect waypoints
+                const inputs = document.querySelectorAll('[data-waypoint]');
+                const waypoints = [];
+                
+                for (let input of inputs) {
+                    if (input.value.trim()) {
+                        const [lon, lat] = input.value.split(',').map(s => parseFloat(s.trim()));
+                        if (!isNaN(lon) && !isNaN(lat)) {
+                            waypoints.push(`${lon},${lat}`);
+                        }
+                    }
+                }
+                
+                if (waypoints.length < 2) {
+                    throw new Error('Please provide at least 2 waypoints');
+                }
+                
+                // Get profile
+                const profile = document.getElementById('profile').value;
+                
+                // Build URL (point to backend server)
+                const waypointsParam = waypoints.join(';');
+                const url = `http://localhost:5001/api/route?waypoints=${waypointsParam}&profile=${profile}`;
+                
+                // Fetch route
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                if (!response.ok || data.error) {
+                    throw new Error(data.error || 'Failed to generate route');
+                }
+                
+                // Clear old route
+                if (routeLine) {
+                    map.removeLayer(routeLine);
+                }
+                
+                // Draw route
+                const coordinates = data.features[0].geometry.coordinates;
+                const latLngs = coordinates.map(coord => [coord[1], coord[0]]);
+                
+                routeLine = L.polyline(latLngs, {
+                    color: '#667eea',
+                    weight: 4,
+                    opacity: 0.8
+                }).addTo(map);
+                
+                // Fit bounds
+                map.fitBounds(routeLine.getBounds(), { padding: [50, 50] });
+                
+                // Display info
+                const props = data.features[0].properties;
+                const distance = (parseFloat(props['track-length']) / 1000).toFixed(2);
+                const time = (parseFloat(props['total-time']) / 60).toFixed(1);
+                const ascend = parseFloat(props['filtered ascend']).toFixed(0);
+                const descend = parseFloat(props['filtered descend']).toFixed(0);
+                
+                infoDiv.innerHTML = `
+                    <div class="route-info">
+                        <h3>Route Information</h3>
+                        <div class="info-item">
+                            <span class="info-label">Distance:</span>
+                            <span class="info-value">${distance} km</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Est. Time:</span>
+                            <span class="info-value">${time} min</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Elevation Gain:</span>
+                            <span class="info-value">${ascend} m</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Elevation Loss:</span>
+                            <span class="info-value">${descend} m</span>
+                        </div>
+                        ${props.segments ? `
+                        <div class="info-item">
+                            <span class="info-label">Segments:</span>
+                            <span class="info-value">${props.segments}</span>
+                        </div>
+                        ` : ''}
+                    </div>
+                `;
+                
+            } catch (error) {
+                errorDiv.innerHTML = `<div class="error">Error: ${error.message}</div>`;
+                infoDiv.innerHTML = '';
+            } finally {
+                btn.disabled = false;
+            }
+        }
+        
+        // Set default San Francisco waypoints
+        document.querySelector('[data-waypoint="0"]').value = '-122.408590, 37.781554';
+        document.querySelector('[data-waypoint="1"]').value = '-122.391590, 37.795554';
+    </script>
+</body>
+</html>
